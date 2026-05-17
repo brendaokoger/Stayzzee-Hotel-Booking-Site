@@ -1,4 +1,5 @@
 import Header from '@/components/Header'
+import Hero from '@/components/Hero'
 
 export default function HomePage() {
   return (
@@ -8,68 +9,54 @@ export default function HomePage() {
       {/* Page offset for fixed header */}
       <main style={{ paddingTop: '72px' }}>
 
-        {/* ── HERO ── */}
-        <Section
-          id="hero"
-          label="Hero"
-          minHeight="90vh"
-          bg="var(--ivory)"
-          borderBottom="1px solid var(--champagne)"
-        />
+        {/* ── HERO + FLOATING SEARCH BAR ── */}
+        <Hero />
 
-        {/* ── SEARCH BAR ── */}
-        <Section
-          id="search-bar"
-          label="Search Bar"
-          minHeight="120px"
-          bg="var(--white)"
-          borderBottom="1px solid var(--champagne)"
-        />
-
-        {/* ── TRUST ICONS ── */}
-        <Section
+        {/* ── TRUST ICONS ── extra top padding to clear the floating search bar ── */}
+        <PlaceholderSection
           id="trust-icons"
           label="Trust Icons"
           minHeight="160px"
-          bg="var(--champagne)"
-          borderBottom="1px solid var(--warm-gray)"
+          bg="#EFE7DC"
+          borderBottom="1px solid #E8E1D8"
+          topPadding="72px"
         />
 
         {/* ── CURATED DESTINATIONS ── */}
-        <Section
+        <PlaceholderSection
           id="curated-destinations"
           label="Curated Destinations"
           minHeight="600px"
-          bg="var(--white)"
-          borderBottom="1px solid var(--champagne)"
+          bg="#FFFFFF"
+          borderBottom="1px solid #EFE7DC"
         />
 
         {/* ── STAYZZEE PRIVÉ ── */}
-        <Section
+        <PlaceholderSection
           id="prive"
           label="STAYZZEE Privé"
           minHeight="500px"
-          bg="var(--charcoal)"
-          labelColor="var(--gold)"
+          bg="#1F1F1F"
+          labelColor="#B8955B"
           borderBottom="none"
         />
 
         {/* ── EXCLUSIVE EXPERIENCES ── */}
-        <Section
+        <PlaceholderSection
           id="exclusive-experiences"
           label="Exclusive Experiences"
           minHeight="600px"
-          bg="var(--ivory)"
-          borderBottom="1px solid var(--champagne)"
+          bg="#F8F6F2"
+          borderBottom="1px solid #EFE7DC"
         />
 
         {/* ── FOOTER ── */}
-        <Section
+        <PlaceholderSection
           id="footer"
           label="Footer"
           minHeight="300px"
-          bg="var(--charcoal)"
-          labelColor="var(--warm-gray)"
+          bg="#1F1F1F"
+          labelColor="#E8E1D8"
           borderBottom="none"
           tag="footer"
         />
@@ -79,26 +66,28 @@ export default function HomePage() {
   )
 }
 
-/* ─── Placeholder section component ─── */
-type SectionProps = {
+/* ── Placeholder section ── */
+type PlaceholderSectionProps = {
   id: string
   label: string
   minHeight: string
   bg: string
   borderBottom?: string
   labelColor?: string
+  topPadding?: string
   tag?: 'section' | 'footer'
 }
 
-function Section({
+function PlaceholderSection({
   id,
   label,
   minHeight,
   bg,
-  borderBottom = '1px solid var(--champagne)',
-  labelColor = 'var(--gold)',
+  borderBottom = '1px solid #EFE7DC',
+  labelColor = '#B8955B',
+  topPadding,
   tag: Tag = 'section',
-}: SectionProps) {
+}: PlaceholderSectionProps) {
   return (
     <Tag
       id={id}
@@ -106,26 +95,15 @@ function Section({
         minHeight,
         backgroundColor: bg,
         borderBottom,
+        paddingTop: topPadding ?? '0',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        gap: '16px',
-        position: 'relative',
+        gap: '14px',
       }}
     >
-      {/* Gold rule above */}
-      <span
-        style={{
-          display: 'block',
-          width: '32px',
-          height: '1px',
-          backgroundColor: labelColor,
-          opacity: 0.5,
-        }}
-      />
-
-      {/* Section label */}
+      <span style={{ display: 'block', width: '28px', height: '1px', backgroundColor: labelColor, opacity: 0.4 }} />
       <span
         style={{
           fontFamily: 'var(--font-sans)',
@@ -134,22 +112,12 @@ function Section({
           letterSpacing: '0.22em',
           textTransform: 'uppercase',
           color: labelColor,
-          opacity: 0.6,
+          opacity: 0.55,
         }}
       >
         {label}
       </span>
-
-      {/* Gold rule below */}
-      <span
-        style={{
-          display: 'block',
-          width: '32px',
-          height: '1px',
-          backgroundColor: labelColor,
-          opacity: 0.5,
-        }}
-      />
+      <span style={{ display: 'block', width: '28px', height: '1px', backgroundColor: labelColor, opacity: 0.4 }} />
     </Tag>
   )
 }
