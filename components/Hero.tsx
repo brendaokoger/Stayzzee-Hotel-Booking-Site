@@ -80,7 +80,7 @@ export default function Hero() {
 
           {/* CTA button */}
           <Link
-            href="#"
+            href="/stays"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
