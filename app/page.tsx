@@ -2,6 +2,7 @@ import Header from '@/components/Header'
 import Hero from '@/components/Hero'
 import TrustRow from '@/components/TrustRow'
 import CuratedDestinations from '@/components/CuratedDestinations'
+import Prive from '@/components/Prive'
 
 export default function HomePage() {
   return (
@@ -21,14 +22,7 @@ export default function HomePage() {
         <CuratedDestinations />
 
         {/* ── STAYZZEE PRIVÉ ── */}
-        <PlaceholderSection
-          id="prive"
-          label="STAYZZEE Privé"
-          minHeight="500px"
-          bg="#1F1F1F"
-          labelColor="#B8955B"
-          borderBottom="none"
-        />
+        <Prive />
 
         {/* ── EXCLUSIVE EXPERIENCES ── */}
         <PlaceholderSection
