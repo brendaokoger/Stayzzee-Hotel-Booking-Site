@@ -71,7 +71,7 @@ export const mockHotels: Hotel[] = [
     pricePerNight: 1200,
     currency: 'USD',
     propertyType: 'Urban Hotel',
-    badge: 'Editors\' Pick',
+    badge: "Editors' Pick",
   },
   {
     id: 'oneonly-dubai',
@@ -99,7 +99,7 @@ export const mockHotels: Hotel[] = [
     rating: 9.9,
     reviewCount: 987,
     description:
-      'Suspended above one of the Maldives' most pristine lagoons, where overwater villas and an untouched reef create an immersive escape far from the ordinary.',
+      "Suspended above one of the Maldives' most pristine lagoons, where overwater villas and an untouched reef create an immersive escape far from the ordinary.",
     amenities: ['Overwater Villas', 'Spa', 'Beach', 'Fine Dining', 'Pool'],
     image: 'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=900&q=85',
     alt: 'Six Senses Laamu overwater villas at sunrise',
@@ -117,7 +117,7 @@ export const mockHotels: Hotel[] = [
     rating: 9.4,
     reviewCount: 1530,
     description:
-      'Carved into the caldera's volcanic clifftops, this Cycladic retreat blends iconic whitewashed architecture with Nobu's signature brand of understated luxury.',
+      "Carved into the caldera's volcanic clifftops, this Cycladic retreat blends iconic whitewashed architecture with Nobu's signature brand of understated luxury.",
     amenities: ['Sea View', 'Pool', 'Fine Dining', 'Spa', 'Private Terrace'],
     image: 'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=900&q=85',
     alt: 'Nobu Hotel Santorini infinity pool overlooking the caldera',
