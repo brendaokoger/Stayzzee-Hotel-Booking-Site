@@ -1,5 +1,7 @@
 import Header from '@/components/Header'
 import Hero from '@/components/Hero'
+import TrustRow from '@/components/TrustRow'
+import CuratedDestinations from '@/components/CuratedDestinations'
 
 export default function HomePage() {
   return (
@@ -12,24 +14,11 @@ export default function HomePage() {
         {/* ── HERO + FLOATING SEARCH BAR ── */}
         <Hero />
 
-        {/* ── TRUST ICONS ── extra top padding to clear the floating search bar ── */}
-        <PlaceholderSection
-          id="trust-icons"
-          label="Trust Icons"
-          minHeight="160px"
-          bg="#EFE7DC"
-          borderBottom="1px solid #E8E1D8"
-          topPadding="72px"
-        />
+        {/* ── TRUST ROW ── */}
+        <TrustRow />
 
         {/* ── CURATED DESTINATIONS ── */}
-        <PlaceholderSection
-          id="curated-destinations"
-          label="Curated Destinations"
-          minHeight="600px"
-          bg="#FFFFFF"
-          borderBottom="1px solid #EFE7DC"
-        />
+        <CuratedDestinations />
 
         {/* ── STAYZZEE PRIVÉ ── */}
         <PlaceholderSection
