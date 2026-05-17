@@ -3,6 +3,8 @@ import Hero from '@/components/Hero'
 import TrustRow from '@/components/TrustRow'
 import CuratedDestinations from '@/components/CuratedDestinations'
 import Prive from '@/components/Prive'
+import ExclusiveExperiences from '@/components/ExclusiveExperiences'
+import Footer from '@/components/Footer'
 
 export default function HomePage() {
   return (
@@ -25,82 +27,12 @@ export default function HomePage() {
         <Prive />
 
         {/* ── EXCLUSIVE EXPERIENCES ── */}
-        <PlaceholderSection
-          id="exclusive-experiences"
-          label="Exclusive Experiences"
-          minHeight="600px"
-          bg="#F8F6F2"
-          borderBottom="1px solid #EFE7DC"
-        />
+        <ExclusiveExperiences />
 
         {/* ── FOOTER ── */}
-        <PlaceholderSection
-          id="footer"
-          label="Footer"
-          minHeight="300px"
-          bg="#1F1F1F"
-          labelColor="#E8E1D8"
-          borderBottom="none"
-          tag="footer"
-        />
+        <Footer />
 
       </main>
     </>
-  )
-}
-
-/* ── Placeholder section ── */
-type PlaceholderSectionProps = {
-  id: string
-  label: string
-  minHeight: string
-  bg: string
-  borderBottom?: string
-  labelColor?: string
-  topPadding?: string
-  tag?: 'section' | 'footer'
-}
-
-function PlaceholderSection({
-  id,
-  label,
-  minHeight,
-  bg,
-  borderBottom = '1px solid #EFE7DC',
-  labelColor = '#B8955B',
-  topPadding,
-  tag: Tag = 'section',
-}: PlaceholderSectionProps) {
-  return (
-    <Tag
-      id={id}
-      style={{
-        minHeight,
-        backgroundColor: bg,
-        borderBottom,
-        paddingTop: topPadding ?? '0',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: '14px',
-      }}
-    >
-      <span style={{ display: 'block', width: '28px', height: '1px', backgroundColor: labelColor, opacity: 0.4 }} />
-      <span
-        style={{
-          fontFamily: 'var(--font-sans)',
-          fontSize: '10px',
-          fontWeight: 500,
-          letterSpacing: '0.22em',
-          textTransform: 'uppercase',
-          color: labelColor,
-          opacity: 0.55,
-        }}
-      >
-        {label}
-      </span>
-      <span style={{ display: 'block', width: '28px', height: '1px', backgroundColor: labelColor, opacity: 0.4 }} />
-    </Tag>
   )
 }
