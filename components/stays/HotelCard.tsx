@@ -259,9 +259,9 @@ export default function HotelCard({ hotel }: { hotel: Hotel }) {
             </span>
           </div>
 
-          {/* TODO: Link to /stays/${hotel.id} when hotel detail page is built */}
+          {/* Links to the hotel detail page */}
           <Link
-            href="#"
+            href={`/stays/${hotel.id}`}
             onClick={(e) => e.stopPropagation()}
             style={{
               display: 'inline-flex',
