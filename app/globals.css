@@ -37,33 +37,87 @@ body {
   overflow-x: hidden;
 }
 
-/* ─── Typography scale ─── */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);
   font-weight: 300;
   line-height: 1.15;
-  letter-spacing: 0.01em;
   color: var(--charcoal);
 }
 
-/* ─── Gold divider utility ─── */
-.gold-rule {
-  display: block;
-  width: 40px;
-  height: 1px;
-  background-color: var(--gold);
-  margin: 0 auto;
+/* ─── Layout utilities ─── */
+
+/* Max-width container */
+.sz-container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 48px;
+  padding-right: 48px;
 }
 
-/* ─── Section label (placeholder state) ─── */
-.section-label {
+/* Section vertical padding */
+.sz-section {
+  padding-top: 88px;
+  padding-bottom: 88px;
+}
+
+.sz-section--sm {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+/* ─── Responsive overrides ─── */
+@media (max-width: 1024px) {
+  .sz-container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sz-container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .sz-section {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+  .sz-section--sm {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sz-container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .sz-section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+
+/* ─── Section label ─── */
+.sz-label {
   font-family: var(--font-sans);
   font-size: 10px;
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--gold);
-  opacity: 0.7;
+  display: block;
+  margin-bottom: 16px;
+}
+
+/* ─── Gold rule ─── */
+.sz-rule {
+  display: block;
+  width: 36px;
+  height: 1px;
+  background-color: var(--gold);
 }
 
 /* ─── Scrollbar ─── */

@@ -2,52 +2,46 @@ const features = [
   {
     Icon: DiamondIcon,
     title: 'Handpicked Stays',
-    description: 'Curated luxury hotels, just for you.',
+    description: 'Every property is personally vetted for excellence.',
   },
   {
     Icon: CrownIcon,
     title: 'Best Price Guarantee',
-    description: 'Luxury at the best available price.',
+    description: 'Luxury at the best available rate, always.',
   },
   {
     Icon: ClocheIcon,
     title: 'Personalized Service',
-    description: '24/7 support for a seamless experience.',
+    description: '24/7 concierge support for a seamless journey.',
   },
   {
     Icon: GiftIcon,
     title: 'Exclusive Benefits',
-    description: 'Perks and privileges at select properties.',
+    description: 'Curated perks and privileges at select properties.',
   },
 ]
 
 export default function TrustRow() {
   return (
     <section
-      id="trust-icons"
       style={{
         backgroundColor: '#FFFFFF',
         borderBottom: '1px solid #EFE7DC',
       }}
     >
-      <div
-        style={{
-          maxWidth: '1200px',
-          margin: '0 auto',
-          padding: '64px 24px',
-        }}
-      >
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0">
-          {features.map((feature, i) => (
+      <div className="sz-container sz-section--sm">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-0">
+          {features.map((f, i) => (
             <div
-              key={feature.title}
-              className="flex items-start gap-4"
+              key={f.title}
               style={{
-                padding: '0 32px 0 0',
-                borderRight: undefined,
+                display: 'flex',
+                alignItems: 'flex-start',
+                gap: '16px',
+                paddingLeft: i > 0 ? undefined : undefined,
               }}
             >
-              {/* Separator — visible only on lg between columns */}
+              {/* Vertical divider between items — desktop only */}
               {i > 0 && (
                 <div
                   className="hidden lg:block"
@@ -55,16 +49,14 @@ export default function TrustRow() {
                     width: '1px',
                     alignSelf: 'stretch',
                     backgroundColor: '#EFE7DC',
-                    marginRight: '32px',
                     flexShrink: 0,
+                    marginRight: '28px',
                   }}
                 />
               )}
-
               <div style={{ color: '#B8955B', flexShrink: 0, marginTop: '2px' }}>
-                <feature.Icon />
+                <f.Icon />
               </div>
-
               <div>
                 <p style={{
                   fontFamily: 'var(--font-sans)',
@@ -73,9 +65,9 @@ export default function TrustRow() {
                   letterSpacing: '0.1em',
                   textTransform: 'uppercase',
                   color: '#1F1F1F',
-                  marginBottom: '7px',
+                  marginBottom: '8px',
                 }}>
-                  {feature.title}
+                  {f.title}
                 </p>
                 <p style={{
                   fontFamily: 'var(--font-sans)',
@@ -83,9 +75,9 @@ export default function TrustRow() {
                   fontWeight: 300,
                   lineHeight: 1.65,
                   color: '#1F1F1F',
-                  opacity: 0.58,
+                  opacity: 0.55,
                 }}>
-                  {feature.description}
+                  {f.description}
                 </p>
               </div>
             </div>
@@ -98,18 +90,16 @@ export default function TrustRow() {
 
 function DiamondIcon() {
   return (
-    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+    <svg width="26" height="26" viewBox="0 0 28 28" fill="none">
       <polygon points="14,2 26,14 14,26 2,14" stroke="#B8955B" strokeWidth="1.2" fill="none" />
       <polygon points="14,7 21,14 14,21 7,14" stroke="#B8955B" strokeWidth="0.8" fill="none" />
-      <line x1="2" y1="14" x2="7" y2="14" stroke="#B8955B" strokeWidth="1.0" />
-      <line x1="21" y1="14" x2="26" y2="14" stroke="#B8955B" strokeWidth="1.0" />
     </svg>
   )
 }
 
 function CrownIcon() {
   return (
-    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+    <svg width="26" height="26" viewBox="0 0 28 28" fill="none">
       <polyline points="4,20 4,10 10,16 14,6 18,16 24,10 24,20" stroke="#B8955B" strokeWidth="1.3" fill="none" strokeLinejoin="round" strokeLinecap="round" />
       <line x1="4" y1="22" x2="24" y2="22" stroke="#B8955B" strokeWidth="1.3" strokeLinecap="round" />
       <circle cx="4" cy="10" r="1.2" fill="#B8955B" />
@@ -121,7 +111,7 @@ function CrownIcon() {
 
 function ClocheIcon() {
   return (
-    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+    <svg width="26" height="26" viewBox="0 0 28 28" fill="none">
       <path d="M5,20 Q5,8 14,8 Q23,8 23,20" stroke="#B8955B" strokeWidth="1.3" fill="none" strokeLinecap="round" />
       <circle cx="14" cy="7" r="1.5" stroke="#B8955B" strokeWidth="1.1" fill="none" />
       <line x1="3" y1="20" x2="25" y2="20" stroke="#B8955B" strokeWidth="1.3" strokeLinecap="round" />
@@ -132,7 +122,7 @@ function ClocheIcon() {
 
 function GiftIcon() {
   return (
-    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+    <svg width="26" height="26" viewBox="0 0 28 28" fill="none">
       <rect x="4" y="13" width="20" height="12" rx="1" stroke="#B8955B" strokeWidth="1.2" fill="none" />
       <rect x="3" y="10" width="22" height="4" rx="1" stroke="#B8955B" strokeWidth="1.2" fill="none" />
       <line x1="14" y1="10" x2="14" y2="25" stroke="#B8955B" strokeWidth="1.0" />

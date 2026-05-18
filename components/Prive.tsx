@@ -5,49 +5,33 @@ import Link from 'next/link'
 export default function Prive() {
   return (
     <section
-      id="prive"
       style={{
         backgroundColor: '#F8F6F2',
         borderTop: '1px solid #EFE7DC',
         borderBottom: '1px solid #EFE7DC',
+        overflow: 'hidden',
       }}
     >
       <div
-        className="flex flex-col md:flex-row md:items-stretch"
         style={{ maxWidth: '1200px', margin: '0 auto' }}
+        className="flex flex-col md:flex-row md:items-stretch"
       >
-        {/* Left: text content */}
-        <div
-          className="w-full md:w-5/12 flex-shrink-0 flex flex-col justify-center"
-          style={{ padding: 'clamp(48px, 6vw, 80px) clamp(24px, 5vw, 64px)' }}
-        >
-          <span style={{
-            display: 'block',
-            width: '32px',
-            height: '1px',
-            backgroundColor: '#B8955B',
-            marginBottom: '24px',
-          }} />
 
-          <p style={{
-            fontFamily: 'var(--font-sans)',
-            fontSize: '10px',
-            fontWeight: 500,
-            letterSpacing: '0.22em',
-            textTransform: 'uppercase',
-            color: '#B8955B',
-            marginBottom: '20px',
-          }}>
-            Stayzzee Privé
-          </p>
+        {/* ── Left: text content ── */}
+        <div
+          className="w-full md:w-[48%] flex flex-col justify-center"
+          style={{ padding: 'clamp(48px, 7vw, 88px) clamp(20px, 4vw, 48px)' }}
+        >
+          <span className="sz-rule" style={{ marginBottom: '28px' }} />
+          <span className="sz-label">Stayzzee Privé</span>
 
           <h2 style={{
             fontFamily: 'var(--font-cormorant)',
-            fontSize: 'clamp(34px, 3.4vw, 52px)',
+            fontSize: 'clamp(34px, 3.5vw, 52px)',
             fontWeight: 300,
             lineHeight: 1.1,
-            letterSpacing: '-0.01em',
             color: '#1F1F1F',
+            letterSpacing: '-0.01em',
             marginBottom: '24px',
           }}>
             Exclusive benefits
@@ -59,28 +43,29 @@ export default function Prive() {
             fontFamily: 'var(--font-sans)',
             fontSize: '14.5px',
             fontWeight: 300,
-            lineHeight: 1.75,
+            lineHeight: 1.8,
             color: '#1F1F1F',
             opacity: 0.62,
             maxWidth: '360px',
-            marginBottom: '40px',
+            marginBottom: '36px',
           }}>
-            We&rsquo;re creating a members-only experience with curated
-            perks, upgrades, and elevated travel benefits.
+            We&rsquo;re creating a members-only experience with curated perks,
+            upgrades, and elevated travel benefits reserved for a select few.
           </p>
 
-          {/* Coming soon badge */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '36px' }}>
+          {/* Coming soon pill */}
+          <div style={{ marginBottom: '36px' }}>
             <span style={{
+              display: 'inline-block',
               fontFamily: 'var(--font-sans)',
               fontSize: '9px',
               fontWeight: 600,
-              letterSpacing: '0.22em',
+              letterSpacing: '0.24em',
               textTransform: 'uppercase',
               color: '#B8955B',
               border: '1px solid #EFE7DC',
-              padding: '6px 14px',
               backgroundColor: '#FFFFFF',
+              padding: '7px 16px',
             }}>
               Coming Soon
             </span>
@@ -90,6 +75,7 @@ export default function Prive() {
             href="#waitlist"
             style={{
               display: 'inline-flex',
+              alignSelf: 'flex-start',
               alignItems: 'center',
               gap: '14px',
               fontFamily: 'var(--font-sans)',
@@ -102,7 +88,6 @@ export default function Prive() {
               border: '1px solid #B8955B',
               padding: '14px 28px',
               transition: 'all 0.25s ease',
-              alignSelf: 'flex-start',
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.backgroundColor = '#B8955B'
@@ -118,16 +103,18 @@ export default function Prive() {
           </Link>
         </div>
 
-        {/* Right: image */}
+        {/* ── Right: resort image ── */}
         <div
-          className="relative overflow-hidden w-full md:flex-1"
-          style={{ minHeight: '320px' }}
+          className="relative w-full md:flex-1 overflow-hidden"
+          style={{ minHeight: '360px' }}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1400&q=80"
+            src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1400&q=85"
             alt="Exclusive luxury resort terrace at golden hour"
             style={{
+              position: 'absolute',
+              inset: 0,
               width: '100%',
               height: '100%',
               objectFit: 'cover',
@@ -135,30 +122,31 @@ export default function Prive() {
               display: 'block',
             }}
           />
+          {/* Subtle overlay */}
           <div style={{
             position: 'absolute',
             inset: 0,
-            background: 'linear-gradient(135deg, rgba(31,31,31,0.15) 0%, transparent 60%)',
+            background: 'linear-gradient(to right, #F8F6F2 0%, transparent 20%)',
             pointerEvents: 'none',
-          }} />
+          }}
+            className="hidden md:block"
+          />
 
-          {/* Floating card — desktop only */}
+          {/* Floating card — desktop */}
           <div
             className="hidden md:block"
             style={{
               position: 'absolute',
-              bottom: '28px',
-              right: '28px',
+              bottom: '32px',
+              right: '32px',
               backgroundColor: '#FFFFFF',
               borderRadius: '10px',
               padding: '22px 26px',
-              boxShadow: '0 12px 48px rgba(31,31,31,0.16)',
-              width: '200px',
+              boxShadow: '0 12px 48px rgba(31,31,31,0.15)',
+              width: '196px',
             }}
           >
-            <div style={{ marginBottom: '12px' }}>
-              <PriveMonogram />
-            </div>
+            <PriveMonogram />
             <p style={{
               fontFamily: 'var(--font-sans)',
               fontSize: '9px',
@@ -166,29 +154,25 @@ export default function Prive() {
               letterSpacing: '0.22em',
               textTransform: 'uppercase',
               color: '#B8955B',
+              marginTop: '12px',
               marginBottom: '8px',
             }}>
               Coming Soon
             </p>
-            <span style={{
-              display: 'block',
-              width: '28px',
-              height: '1px',
-              backgroundColor: '#EFE7DC',
-              marginBottom: '10px',
-            }} />
+            <div style={{ width: '28px', height: '1px', backgroundColor: '#EFE7DC', marginBottom: '10px' }} />
             <p style={{
               fontFamily: 'var(--font-sans)',
               fontSize: '12px',
               fontWeight: 300,
               lineHeight: 1.6,
               color: '#1F1F1F',
-              opacity: 0.65,
+              opacity: 0.62,
             }}>
               Be the first to enjoy exclusive member benefits.
             </p>
           </div>
         </div>
+
       </div>
     </section>
   )
@@ -196,7 +180,7 @@ export default function Prive() {
 
 function PriveMonogram() {
   return (
-    <svg width="36" height="44" viewBox="0 0 36 44" fill="none" aria-hidden="true">
+    <svg width="32" height="40" viewBox="0 0 36 44" fill="none" aria-hidden="true">
       <rect x="1" y="1" width="34" height="42" rx="17" stroke="#B8955B" strokeWidth="1" fill="none" />
       <text x="18" y="18" textAnchor="middle" fontFamily="Cormorant Garamond, Georgia, serif" fontSize="14" fontWeight="400" fill="#B8955B">S</text>
       <line x1="9" y1="23" x2="27" y2="23" stroke="#B8955B" strokeWidth="0.75" />

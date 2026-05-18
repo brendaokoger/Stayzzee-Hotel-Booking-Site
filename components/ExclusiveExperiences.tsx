@@ -13,21 +13,21 @@ const experiences = [
   {
     id: 'wellness-retreats',
     title: 'Wellness Retreats',
-    description: 'Restorative journeys for the body, mind, and spirit.',
+    description: 'Restorative journeys for body, mind, and spirit.',
     image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=700&q=80',
     alt: 'Luxury spa and wellness retreat',
   },
   {
     id: 'private-dining',
     title: 'Private Dining',
-    description: 'Intimate culinary experiences crafted by world-class chefs.',
+    description: 'Intimate culinary experiences by world-class chefs.',
     image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=700&q=80',
     alt: 'Elegant private dining table setting',
   },
   {
     id: 'vip-transfers',
     title: 'VIP Transfers',
-    description: 'Seamless luxury ground and air transportation worldwide.',
+    description: 'Seamless luxury ground and air transport worldwide.',
     image: 'https://images.unsplash.com/photo-1553440569-bcc63803a83d?w=700&q=80',
     alt: 'Luxury private vehicle transfer',
   },
@@ -36,82 +36,72 @@ const experiences = [
 export default function ExclusiveExperiences() {
   return (
     <section
-      id="exclusive-experiences"
       style={{
         backgroundColor: '#FFFFFF',
         borderBottom: '1px solid #EFE7DC',
-        padding: '80px 0 88px',
       }}
     >
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
+      <div className="sz-container sz-section">
 
         {/* Section header */}
-        <div style={{ marginBottom: '40px' }}>
-          <p style={{
-            fontFamily: 'var(--font-sans)',
-            fontSize: '10px',
-            fontWeight: 500,
-            letterSpacing: '0.22em',
-            textTransform: 'uppercase',
-            color: '#B8955B',
-            marginBottom: '16px',
-          }}>
-            Exclusive Experiences
-          </p>
-          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-            <div>
-              <h2 style={{
-                fontFamily: 'var(--font-cormorant)',
-                fontSize: 'clamp(32px, 3.2vw, 44px)',
-                fontWeight: 300,
-                lineHeight: 1.1,
-                letterSpacing: '-0.01em',
-                color: '#1F1F1F',
-                marginBottom: '12px',
-              }}>
-                Beyond the stay.
-              </h2>
-              <p style={{
-                fontFamily: 'var(--font-sans)',
-                fontSize: '14px',
-                fontWeight: 300,
-                lineHeight: 1.7,
-                color: '#1F1F1F',
-                opacity: 0.58,
-                maxWidth: '420px',
-              }}>
-                Discover elevated experiences designed to make every trip unforgettable.
-              </p>
-            </div>
-            <Link
-              href="#"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '10px',
-                fontFamily: 'var(--font-sans)',
-                fontSize: '11px',
-                fontWeight: 500,
-                letterSpacing: '0.16em',
-                textTransform: 'uppercase',
-                color: '#B8955B',
-                textDecoration: 'none',
-                flexShrink: 0,
-                transition: 'gap 0.2s ease',
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.gap = '16px')}
-              onMouseLeave={(e) => (e.currentTarget.style.gap = '10px')}
-            >
-              Explore Experiences
-              <ArrowRight />
-            </Link>
+        <div
+          style={{ marginBottom: '48px' }}
+          className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6"
+        >
+          <div>
+            <span className="sz-label">Exclusive Experiences</span>
+            <h2 style={{
+              fontFamily: 'var(--font-cormorant)',
+              fontSize: 'clamp(32px, 3.2vw, 46px)',
+              fontWeight: 300,
+              lineHeight: 1.08,
+              letterSpacing: '-0.01em',
+              color: '#1F1F1F',
+              marginBottom: '12px',
+            }}>
+              Beyond the stay.
+            </h2>
+            <p style={{
+              fontFamily: 'var(--font-sans)',
+              fontSize: '14px',
+              fontWeight: 300,
+              lineHeight: 1.75,
+              color: '#1F1F1F',
+              opacity: 0.55,
+              maxWidth: '400px',
+            }}>
+              Elevated experiences designed to make every journey unforgettable.
+            </p>
           </div>
+          <Link
+            href="#"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '10px',
+              fontFamily: 'var(--font-sans)',
+              fontSize: '11px',
+              fontWeight: 500,
+              letterSpacing: '0.16em',
+              textTransform: 'uppercase',
+              color: '#B8955B',
+              textDecoration: 'none',
+              flexShrink: 0,
+              transition: 'gap 0.2s ease',
+              paddingBottom: '4px',
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.gap = '16px')}
+            onMouseLeave={(e) => (e.currentTarget.style.gap = '10px')}
+          >
+            Explore All
+            <ArrowRight />
+          </Link>
         </div>
 
-        {/* Cards grid */}
+        {/* Experience cards: 1 col mobile, 2 col tablet, 4 col desktop */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {experiences.map((exp) => (
-            <ExperienceCard key={exp.id} {...exp} />
+          {experiences.map((e) => (
+            <ExperienceCard key={e.id} {...e} />
           ))}
         </div>
 
@@ -120,34 +110,38 @@ export default function ExclusiveExperiences() {
   )
 }
 
-type CardProps = {
+function ExperienceCard({
+  title, description, image, alt,
+}: {
   title: string
   description: string
   image: string
   alt: string
-}
-
-function ExperienceCard({ title, description, image, alt }: CardProps) {
+}) {
   return (
     <div
       style={{
         borderRadius: '8px',
         overflow: 'hidden',
         backgroundColor: '#FAFAF8',
-        boxShadow: '0 4px 24px rgba(31,31,31,0.07)',
+        border: '1px solid #EFE7DC',
         display: 'flex',
         flexDirection: 'column',
         cursor: 'pointer',
+        transition: 'box-shadow 0.3s ease',
       }}
       onMouseEnter={(e) => {
         const img = e.currentTarget.querySelector('img') as HTMLImageElement | null
-        if (img) img.style.transform = 'scale(1.06)'
+        if (img) img.style.transform = 'scale(1.05)';
+        (e.currentTarget as HTMLElement).style.boxShadow = '0 8px 40px rgba(31,31,31,0.10)'
       }}
       onMouseLeave={(e) => {
         const img = e.currentTarget.querySelector('img') as HTMLImageElement | null
-        if (img) img.style.transform = 'scale(1.0)'
+        if (img) img.style.transform = 'scale(1)';
+        (e.currentTarget as HTMLElement).style.boxShadow = 'none'
       }}
     >
+      {/* Image */}
       <div style={{ height: '200px', overflow: 'hidden', flexShrink: 0 }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
@@ -163,9 +157,11 @@ function ExperienceCard({ title, description, image, alt }: CardProps) {
         />
       </div>
 
-      <div style={{ height: '1.5px', backgroundColor: '#B8955B', opacity: 0.55, flexShrink: 0 }} />
+      {/* Gold accent line */}
+      <div style={{ height: '1.5px', backgroundColor: '#B8955B', opacity: 0.6, flexShrink: 0 }} />
 
-      <div style={{ padding: '20px 20px 22px', display: 'flex', flexDirection: 'column', gap: '10px', flex: 1 }}>
+      {/* Body */}
+      <div style={{ padding: '20px', display: 'flex', flexDirection: 'column', gap: '10px', flex: 1 }}>
         <p style={{
           fontFamily: 'var(--font-sans)',
           fontSize: '11px',
@@ -180,42 +176,36 @@ function ExperienceCard({ title, description, image, alt }: CardProps) {
           fontFamily: 'var(--font-sans)',
           fontSize: '13px',
           fontWeight: 300,
-          lineHeight: 1.6,
+          lineHeight: 1.65,
           color: '#1F1F1F',
           opacity: 0.58,
           flex: 1,
         }}>
           {description}
         </p>
-        <ExploreLink />
+        <Link
+          href="#"
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '8px',
+            fontFamily: 'var(--font-sans)',
+            fontSize: '10.5px',
+            fontWeight: 500,
+            letterSpacing: '0.14em',
+            textTransform: 'uppercase',
+            color: '#B8955B',
+            textDecoration: 'none',
+            transition: 'gap 0.2s ease',
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.gap = '13px')}
+          onMouseLeave={(e) => (e.currentTarget.style.gap = '8px')}
+        >
+          Explore
+          <ArrowRight />
+        </Link>
       </div>
     </div>
-  )
-}
-
-function ExploreLink() {
-  return (
-    <Link
-      href="#"
-      style={{
-        display: 'inline-flex',
-        alignItems: 'center',
-        gap: '8px',
-        fontFamily: 'var(--font-sans)',
-        fontSize: '10.5px',
-        fontWeight: 500,
-        letterSpacing: '0.16em',
-        textTransform: 'uppercase',
-        color: '#B8955B',
-        textDecoration: 'none',
-        transition: 'gap 0.2s ease',
-      }}
-      onMouseEnter={(e) => (e.currentTarget.style.gap = '13px')}
-      onMouseLeave={(e) => (e.currentTarget.style.gap = '8px')}
-    >
-      Explore
-      <ArrowRight />
-    </Link>
   )
 }
 
