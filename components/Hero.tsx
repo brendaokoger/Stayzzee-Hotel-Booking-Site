@@ -108,6 +108,7 @@ export default function Hero() {
             Find your perfect stay,
             <br />
             <em
+              className="sz-hero-italic"
               style={{
                 color: '#B8955B',
                 fontStyle: 'italic',

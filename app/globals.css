@@ -120,6 +120,16 @@ h1, h2, h3, h4, h5, h6 {
   background-color: var(--gold);
 }
 
+/* ─── Hero italic — no wrap on desktop, wraps on mobile ─── */
+.sz-hero-italic {
+  white-space: nowrap;
+}
+@media (max-width: 767px) {
+  .sz-hero-italic {
+    white-space: normal;
+  }
+}
+
 /* ─── Scrollbar ─── */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--ivory); }

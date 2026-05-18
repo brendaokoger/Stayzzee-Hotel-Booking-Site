@@ -146,7 +146,8 @@ export default function Prive() {
               width: '196px',
             }}
           >
-            <PriveMonogram />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/stayzzee%20logo%201.png" alt="STAYZZEE" style={{ height: '24px', width: 'auto', display: 'block' }} />
             <p style={{
               fontFamily: 'var(--font-sans)',
               fontSize: '9px',
@@ -178,16 +179,6 @@ export default function Prive() {
   )
 }
 
-function PriveMonogram() {
-  return (
-    <svg width="32" height="40" viewBox="0 0 36 44" fill="none" aria-hidden="true">
-      <rect x="1" y="1" width="34" height="42" rx="17" stroke="#B8955B" strokeWidth="1" fill="none" />
-      <text x="18" y="18" textAnchor="middle" fontFamily="Cormorant Garamond, Georgia, serif" fontSize="14" fontWeight="400" fill="#B8955B">S</text>
-      <line x1="9" y1="23" x2="27" y2="23" stroke="#B8955B" strokeWidth="0.75" />
-      <text x="18" y="38" textAnchor="middle" fontFamily="Cormorant Garamond, Georgia, serif" fontSize="13" fontWeight="300" fontStyle="italic" fill="#B8955B">z</text>
-    </svg>
-  )
-}
 
 function ArrowRight() {
   return (
