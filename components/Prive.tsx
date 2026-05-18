@@ -2,6 +2,13 @@
 
 import Link from 'next/link'
 
+const perks = [
+  'Up to 20% off on selected stays',
+  'Complimentary upgrades',
+  'Early check-in & late check-out',
+  'Members-only offers',
+]
+
 export default function Prive() {
   return (
     <section
@@ -32,44 +39,29 @@ export default function Prive() {
             lineHeight: 1.1,
             color: '#1F1F1F',
             letterSpacing: '-0.01em',
-            marginBottom: '24px',
+            marginBottom: '28px',
           }}>
-            Exclusive benefits
+            Unlock exclusive benefits
             <br />
-            are coming soon.
+            and elevated privileges.
           </h2>
 
-          <p style={{
-            fontFamily: 'var(--font-sans)',
-            fontSize: '14.5px',
-            fontWeight: 300,
-            lineHeight: 1.8,
-            color: '#1F1F1F',
-            opacity: 0.62,
-            maxWidth: '360px',
-            marginBottom: '36px',
-          }}>
-            We&rsquo;re creating a members-only experience with curated perks,
-            upgrades, and elevated travel benefits reserved for a select few.
-          </p>
-
-          {/* Coming soon pill */}
-          <div style={{ marginBottom: '36px' }}>
-            <span style={{
-              display: 'inline-block',
-              fontFamily: 'var(--font-sans)',
-              fontSize: '9px',
-              fontWeight: 600,
-              letterSpacing: '0.24em',
-              textTransform: 'uppercase',
-              color: '#B8955B',
-              border: '1px solid #EFE7DC',
-              backgroundColor: '#FFFFFF',
-              padding: '7px 16px',
-            }}>
-              Coming Soon
-            </span>
-          </div>
+          <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 36px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            {perks.map((perk) => (
+              <li key={perk} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <CheckIcon />
+                <span style={{
+                  fontFamily: 'var(--font-sans)',
+                  fontSize: '14px',
+                  fontWeight: 300,
+                  color: '#1F1F1F',
+                  opacity: 0.72,
+                }}>
+                  {perk}
+                </span>
+              </li>
+            ))}
+          </ul>
 
           <Link
             href="#waitlist"
@@ -83,22 +75,16 @@ export default function Prive() {
               fontWeight: 500,
               letterSpacing: '0.18em',
               textTransform: 'uppercase',
-              color: '#B8955B',
+              color: '#FFFFFF',
               textDecoration: 'none',
-              border: '1px solid #B8955B',
+              backgroundColor: '#B8955B',
               padding: '14px 28px',
-              transition: 'all 0.25s ease',
+              transition: 'background-color 0.25s ease',
             }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#B8955B'
-              e.currentTarget.style.color = '#FFFFFF'
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = 'transparent'
-              e.currentTarget.style.color = '#B8955B'
-            }}
+            onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#a07d4a' }}
+            onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#B8955B' }}
           >
-            Join the Waitlist
+            Join Privé
             <ArrowRight />
           </Link>
         </div>
@@ -106,7 +92,7 @@ export default function Prive() {
         {/* ── Right: resort image ── */}
         <div
           className="relative w-full md:flex-1 overflow-hidden"
-          style={{ minHeight: '360px' }}
+          style={{ minHeight: '420px' }}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -122,14 +108,15 @@ export default function Prive() {
               display: 'block',
             }}
           />
-          {/* Subtle overlay */}
-          <div style={{
-            position: 'absolute',
-            inset: 0,
-            background: 'linear-gradient(to right, #F8F6F2 0%, transparent 20%)',
-            pointerEvents: 'none',
-          }}
+          {/* Left-side gradient for blending on desktop */}
+          <div
             className="hidden md:block"
+            style={{
+              position: 'absolute',
+              inset: 0,
+              background: 'linear-gradient(to right, #F8F6F2 0%, transparent 20%)',
+              pointerEvents: 'none',
+            }}
           />
 
           {/* Floating card — desktop */}
@@ -143,11 +130,15 @@ export default function Prive() {
               borderRadius: '10px',
               padding: '22px 26px',
               boxShadow: '0 12px 48px rgba(31,31,31,0.15)',
-              width: '196px',
+              width: '200px',
             }}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/stayzzee%20logo%201.png" alt="STAYZZEE" style={{ height: '24px', width: 'auto', display: 'block' }} />
+            <img
+              src="/stayzzee%20logo%201.png"
+              alt="STAYZZEE"
+              style={{ height: '22px', width: 'auto', display: 'block', marginBottom: '12px' }}
+            />
             <p style={{
               fontFamily: 'var(--font-sans)',
               fontSize: '9px',
@@ -155,10 +146,9 @@ export default function Prive() {
               letterSpacing: '0.22em',
               textTransform: 'uppercase',
               color: '#B8955B',
-              marginTop: '12px',
               marginBottom: '8px',
             }}>
-              Coming Soon
+              Privé Member
             </p>
             <div style={{ width: '28px', height: '1px', backgroundColor: '#EFE7DC', marginBottom: '10px' }} />
             <p style={{
@@ -169,7 +159,7 @@ export default function Prive() {
               color: '#1F1F1F',
               opacity: 0.62,
             }}>
-              Be the first to enjoy exclusive member benefits.
+              Enjoy exclusive benefits every time you stay.
             </p>
           </div>
         </div>
@@ -179,6 +169,13 @@ export default function Prive() {
   )
 }
 
+function CheckIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B8955B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+      <polyline points="20 6 9 17 4 12" />
+    </svg>
+  )
+}
 
 function ArrowRight() {
   return (

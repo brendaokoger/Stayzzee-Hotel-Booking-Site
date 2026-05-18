@@ -8,40 +8,44 @@ export default function SearchBar() {
 
           <div className="sz-searchbar-field" style={{ flex: '1.5' }}>
             <span className="sz-searchbar-icon"><PinIcon /></span>
-            <div style={{ minWidth: 0 }}>
+            <div style={{ minWidth: 0, flex: 1 }}>
               <div className="sz-searchbar-label">Where to?</div>
               <div className="sz-searchbar-value">Search destinations</div>
             </div>
+            <span className="sz-searchbar-chevron"><ChevronDown /></span>
           </div>
 
           <div className="sz-searchbar-sep" />
 
           <div className="sz-searchbar-field" style={{ flex: '1' }}>
             <span className="sz-searchbar-icon"><CalendarIcon /></span>
-            <div style={{ minWidth: 0 }}>
+            <div style={{ minWidth: 0, flex: 1 }}>
               <div className="sz-searchbar-label">Check-in</div>
               <div className="sz-searchbar-value">Add date</div>
             </div>
+            <span className="sz-searchbar-chevron"><ChevronDown /></span>
           </div>
 
           <div className="sz-searchbar-sep" />
 
           <div className="sz-searchbar-field" style={{ flex: '1' }}>
             <span className="sz-searchbar-icon"><CalendarIcon /></span>
-            <div style={{ minWidth: 0 }}>
+            <div style={{ minWidth: 0, flex: 1 }}>
               <div className="sz-searchbar-label">Check-out</div>
               <div className="sz-searchbar-value">Add date</div>
             </div>
+            <span className="sz-searchbar-chevron"><ChevronDown /></span>
           </div>
 
           <div className="sz-searchbar-sep" />
 
           <div className="sz-searchbar-field" style={{ flex: '0.9' }}>
             <span className="sz-searchbar-icon"><GuestIcon /></span>
-            <div style={{ minWidth: 0 }}>
+            <div style={{ minWidth: 0, flex: 1 }}>
               <div className="sz-searchbar-label">Guests</div>
-              <div className="sz-searchbar-value">2 guests</div>
+              <div className="sz-searchbar-value">2 Guests</div>
             </div>
+            <span className="sz-searchbar-chevron"><ChevronDown /></span>
           </div>
 
           <button className="sz-searchbar-btn">Search</button>
@@ -49,6 +53,14 @@ export default function SearchBar() {
         </div>
       </div>
     </section>
+  )
+}
+
+function ChevronDown() {
+  return (
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="6 9 12 15 18 9" />
+    </svg>
   )
 }
 

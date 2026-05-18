@@ -196,6 +196,12 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
 }
 .sz-searchbar-btn:hover { background: #a07d4a; }
+.sz-searchbar-chevron {
+  color: #1F1F1F;
+  opacity: 0.35;
+  flex-shrink: 0;
+  line-height: 1;
+}
 
 @media (min-width: 768px) {
   .sz-searchbar-section { margin-top: -56px; }
