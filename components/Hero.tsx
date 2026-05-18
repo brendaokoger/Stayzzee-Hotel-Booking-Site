@@ -1,86 +1,62 @@
 'use client'
 
 import Link from 'next/link'
-import SearchBar from './SearchBar'
 
 export default function Hero() {
   return (
     <section
       id="hero"
-      style={{
-        position: 'relative',
-        display: 'flex',
-        minHeight: 'calc(88vh - 72px)',
-        overflow: 'visible',
-      }}
+      className="flex flex-col md:flex-row"
+      style={{ minHeight: 'calc(72vh - 72px)' }}
     >
-      {/* ── Left: text panel ── */}
+      {/* Left: text panel */}
       <div
+        className="flex items-center w-full md:w-5/12 flex-shrink-0"
         style={{
-          width: '42%',
-          flexShrink: 0,
           backgroundColor: '#F8F6F2',
-          display: 'flex',
-          alignItems: 'center',
-          padding: '80px 64px 160px 80px',
+          padding: 'clamp(48px, 6vw, 80px) clamp(24px, 5vw, 64px)',
         }}
       >
-        <div style={{ maxWidth: '420px' }}>
-          {/* Eyebrow rule */}
-          <span
-            style={{
-              display: 'block',
-              width: '32px',
-              height: '1px',
-              backgroundColor: '#B8955B',
-              marginBottom: '32px',
-            }}
-          />
+        <div style={{ maxWidth: '420px', width: '100%' }}>
+          <span style={{
+            display: 'block',
+            width: '32px',
+            height: '1px',
+            backgroundColor: '#B8955B',
+            marginBottom: '32px',
+          }} />
 
-          {/* Headline */}
-          <h1
-            style={{
-              fontFamily: 'var(--font-cormorant)',
-              fontSize: 'clamp(46px, 4.6vw, 66px)',
-              fontWeight: 300,
-              lineHeight: 1.08,
-              letterSpacing: '-0.01em',
-              color: '#1F1F1F',
-              marginBottom: '28px',
-            }}
-          >
+          <h1 style={{
+            fontFamily: 'var(--font-cormorant)',
+            fontSize: 'clamp(40px, 4.5vw, 66px)',
+            fontWeight: 300,
+            lineHeight: 1.08,
+            letterSpacing: '-0.01em',
+            color: '#1F1F1F',
+            marginBottom: '24px',
+          }}>
             Find your perfect stay,
             <br />
-            <em
-              style={{
-                color: '#B8955B',
-                fontStyle: 'italic',
-                fontWeight: 300,
-              }}
-            >
+            <em style={{ color: '#B8955B', fontStyle: 'italic', fontWeight: 300 }}>
               wherever life
               <br />
               takes you.
             </em>
           </h1>
 
-          {/* Subheadline */}
-          <p
-            style={{
-              fontFamily: 'var(--font-sans)',
-              fontSize: '14.5px',
-              fontWeight: 300,
-              lineHeight: 1.75,
-              color: '#1F1F1F',
-              opacity: 0.65,
-              marginBottom: '44px',
-              maxWidth: '300px',
-            }}
-          >
+          <p style={{
+            fontFamily: 'var(--font-sans)',
+            fontSize: '14.5px',
+            fontWeight: 300,
+            lineHeight: 1.75,
+            color: '#1F1F1F',
+            opacity: 0.65,
+            marginBottom: '40px',
+            maxWidth: '300px',
+          }}>
             Handpicked luxury stays and unforgettable experiences.
           </p>
 
-          {/* CTA button */}
           <Link
             href="/stays"
             style={{
@@ -95,7 +71,7 @@ export default function Hero() {
               color: '#B8955B',
               textDecoration: 'none',
               border: '1px solid #B8955B',
-              padding: '15px 32px',
+              padding: '14px 28px',
               transition: 'all 0.25s ease',
             }}
             onMouseEnter={(e) => {
@@ -113,13 +89,10 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* ── Right: full-bleed image ── */}
+      {/* Right: full-bleed image */}
       <div
-        style={{
-          flex: 1,
-          position: 'relative',
-          overflow: 'hidden',
-        }}
+        className="relative overflow-hidden w-full md:flex-1"
+        style={{ minHeight: '260px' }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
@@ -133,22 +106,16 @@ export default function Hero() {
             display: 'block',
           }}
         />
-        {/* Subtle left-edge fade into the ivory panel */}
-        <div
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '80px',
-            height: '100%',
-            background: 'linear-gradient(to right, #F8F6F2 0%, transparent 100%)',
-            pointerEvents: 'none',
-          }}
-        />
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '80px',
+          height: '100%',
+          background: 'linear-gradient(to right, #F8F6F2 0%, transparent 100%)',
+          pointerEvents: 'none',
+        }} />
       </div>
-
-      {/* ── Floating search bar — overlaps below hero ── */}
-      <SearchBar />
     </section>
   )
 }

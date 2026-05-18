@@ -1,5 +1,6 @@
 import Header from '@/components/Header'
 import Hero from '@/components/Hero'
+import SearchBar from '@/components/SearchBar'
 import TrustRow from '@/components/TrustRow'
 import CuratedDestinations from '@/components/CuratedDestinations'
 import Prive from '@/components/Prive'
@@ -10,28 +11,14 @@ export default function HomePage() {
   return (
     <>
       <Header />
-
-      {/* Page offset for fixed header */}
       <main style={{ paddingTop: '72px' }}>
-
-        {/* ── HERO + FLOATING SEARCH BAR ── */}
         <Hero />
-
-        {/* ── TRUST ROW ── */}
+        <SearchBar />
         <TrustRow />
-
-        {/* ── CURATED DESTINATIONS ── */}
         <CuratedDestinations />
-
-        {/* ── STAYZZEE PRIVÉ ── */}
         <Prive />
-
-        {/* ── EXCLUSIVE EXPERIENCES ── */}
         <ExclusiveExperiences />
-
-        {/* ── FOOTER ── */}
         <Footer />
-
       </main>
     </>
   )

@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 
 const navLinks = [
-  { label: 'Stays', href: '#' },
+  { label: 'Stays', href: '/stays' },
   { label: 'Destinations', href: '#' },
   { label: 'Experiences', href: '#' },
   { label: 'Offers', href: '#' },
@@ -35,25 +35,22 @@ export default function Footer() {
         borderTop: '1px solid #EFE7DC',
       }}
     >
-      {/* ── Main footer body ── */}
       <div
         style={{
-          maxWidth: '1400px',
+          maxWidth: '1200px',
           margin: '0 auto',
-          padding: '72px 80px 64px',
-          display: 'grid',
-          gridTemplateColumns: '1.6fr 1fr 1fr 1.6fr',
-          gap: '56px',
-          alignItems: 'start',
+          padding: '64px 24px 48px',
         }}
       >
-        {/* ── Col 1: Logo + mission ── */}
-        <div>
-          <div style={{ marginBottom: '20px' }}>
-            <FooterLogo />
-          </div>
-          <p
-            style={{
+        {/* Main grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
+
+          {/* Col 1: Logo + mission */}
+          <div className="sm:col-span-2 lg:col-span-1">
+            <div style={{ marginBottom: '18px' }}>
+              <FooterLogo />
+            </div>
+            <p style={{
               fontFamily: 'var(--font-sans)',
               fontSize: '13px',
               fontWeight: 300,
@@ -61,81 +58,65 @@ export default function Footer() {
               color: '#1F1F1F',
               opacity: 0.55,
               maxWidth: '260px',
-              marginBottom: '28px',
-            }}
-          >
-            Curated luxury stays and unforgettable experiences — handpicked for discerning travellers worldwide.
-          </p>
-
-          {/* Social icons */}
-          <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-            <SocialButton href="#" label="Instagram">
-              <InstagramIcon />
-            </SocialButton>
-            <SocialButton href="#" label="Pinterest">
-              <PinterestIcon />
-            </SocialButton>
-            <SocialButton href="#" label="Twitter / X">
-              <XIcon />
-            </SocialButton>
-            <SocialButton href="#" label="LinkedIn">
-              <LinkedInIcon />
-            </SocialButton>
+              marginBottom: '24px',
+            }}>
+              Curated luxury stays and unforgettable experiences — handpicked for discerning travellers worldwide.
+            </p>
+            <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+              <SocialButton href="#" label="Instagram"><InstagramIcon /></SocialButton>
+              <SocialButton href="#" label="Pinterest"><PinterestIcon /></SocialButton>
+              <SocialButton href="#" label="Twitter / X"><XIcon /></SocialButton>
+              <SocialButton href="#" label="LinkedIn"><LinkedInIcon /></SocialButton>
+            </div>
           </div>
-        </div>
 
-        {/* ── Col 2: Explore nav ── */}
-        <div>
-          <p
-            style={{
+          {/* Col 2: Explore */}
+          <div>
+            <p style={{
               fontFamily: 'var(--font-sans)',
               fontSize: '10px',
               fontWeight: 500,
               letterSpacing: '0.2em',
               textTransform: 'uppercase',
               color: '#B8955B',
-              marginBottom: '20px',
-            }}
-          >
-            Explore
-          </p>
-          <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
-            {navLinks.map((link) => (
-              <li key={link.label}>
-                <FooterLink href={link.href}>{link.label}</FooterLink>
-              </li>
-            ))}
-          </ul>
-        </div>
+              marginBottom: '18px',
+            }}>
+              Explore
+            </p>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '11px' }}>
+              {navLinks.map((link) => (
+                <li key={link.label}>
+                  <FooterLink href={link.href}>{link.label}</FooterLink>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-        {/* ── Col 3: Support ── */}
-        <div>
-          <p
-            style={{
+          {/* Col 3: Support */}
+          <div>
+            <p style={{
               fontFamily: 'var(--font-sans)',
               fontSize: '10px',
               fontWeight: 500,
               letterSpacing: '0.2em',
               textTransform: 'uppercase',
               color: '#B8955B',
-              marginBottom: '20px',
-            }}
-          >
-            Support
-          </p>
-          <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
-            {supportLinks.map((link) => (
-              <li key={link.label}>
-                <FooterLink href={link.href}>{link.label}</FooterLink>
-              </li>
-            ))}
-          </ul>
-        </div>
+              marginBottom: '18px',
+            }}>
+              Support
+            </p>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '11px' }}>
+              {supportLinks.map((link) => (
+                <li key={link.label}>
+                  <FooterLink href={link.href}>{link.label}</FooterLink>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-        {/* ── Col 4: Newsletter ── */}
-        <div>
-          <p
-            style={{
+          {/* Col 4: Newsletter */}
+          <div>
+            <p style={{
               fontFamily: 'var(--font-sans)',
               fontSize: '10px',
               fontWeight: 500,
@@ -143,144 +124,135 @@ export default function Footer() {
               textTransform: 'uppercase',
               color: '#B8955B',
               marginBottom: '12px',
-            }}
-          >
-            Stay Inspired
-          </p>
-          <p
-            style={{
+            }}>
+              Stay Inspired
+            </p>
+            <p style={{
               fontFamily: 'var(--font-sans)',
               fontSize: '13px',
               fontWeight: 300,
               lineHeight: 1.65,
               color: '#1F1F1F',
               opacity: 0.55,
-              marginBottom: '24px',
-            }}
-          >
-            Receive curated destinations, exclusive offers, and travel inspiration.
-          </p>
+              marginBottom: '20px',
+            }}>
+              Receive curated destinations, exclusive offers, and travel inspiration.
+            </p>
 
-          {subscribed ? (
-            <div
-              style={{
+            {subscribed ? (
+              <div style={{
                 fontFamily: 'var(--font-sans)',
                 fontSize: '12px',
                 fontWeight: 400,
-                letterSpacing: '0.08em',
+                letterSpacing: '0.06em',
                 color: '#B8955B',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '8px',
-              }}
-            >
-              <span style={{ fontSize: '16px' }}>✓</span>
-              You&rsquo;re on the list. Thank you.
-            </div>
-          ) : (
-            <form
-              onSubmit={handleSubscribe}
-              style={{ display: 'flex', alignItems: 'center', borderBottom: '1px solid #C8BAA8', paddingBottom: '2px' }}
-            >
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Your email address"
-                required
-                style={{
-                  flex: 1,
-                  fontFamily: 'var(--font-sans)',
-                  fontSize: '13px',
-                  fontWeight: 300,
-                  color: '#1F1F1F',
-                  background: 'none',
-                  border: 'none',
-                  outline: 'none',
-                  padding: '6px 0',
-                  letterSpacing: '0.02em',
-                }}
-              />
-              <button
-                type="submit"
-                aria-label="Subscribe"
-                style={{
-                  background: 'none',
-                  border: 'none',
-                  cursor: 'pointer',
-                  padding: '6px 0 6px 12px',
-                  color: '#B8955B',
-                  display: 'flex',
-                  alignItems: 'center',
-                  transition: 'transform 0.2s ease',
-                  flexShrink: 0,
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.transform = 'translateX(4px)')}
-                onMouseLeave={(e) => (e.currentTarget.style.transform = 'translateX(0)')}
+              }}>
+                <span>✓</span>
+                You&rsquo;re on the list. Thank you.
+              </div>
+            ) : (
+              <form
+                onSubmit={handleSubscribe}
+                style={{ display: 'flex', alignItems: 'center', borderBottom: '1px solid #C8BAA8', paddingBottom: '2px' }}
               >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                  <polyline points="12 5 19 12 12 19" />
-                </svg>
-              </button>
-            </form>
-          )}
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Your email address"
+                  required
+                  style={{
+                    flex: 1,
+                    fontFamily: 'var(--font-sans)',
+                    fontSize: '13px',
+                    fontWeight: 300,
+                    color: '#1F1F1F',
+                    background: 'none',
+                    border: 'none',
+                    outline: 'none',
+                    padding: '6px 0',
+                    letterSpacing: '0.02em',
+                    minWidth: 0,
+                  }}
+                />
+                <button
+                  type="submit"
+                  aria-label="Subscribe"
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    cursor: 'pointer',
+                    padding: '6px 0 6px 12px',
+                    color: '#B8955B',
+                    display: 'flex',
+                    alignItems: 'center',
+                    transition: 'transform 0.2s ease',
+                    flexShrink: 0,
+                  }}
+                  onMouseEnter={(e) => (e.currentTarget.style.transform = 'translateX(4px)')}
+                  onMouseLeave={(e) => (e.currentTarget.style.transform = 'translateX(0)')}
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </button>
+              </form>
+            )}
+          </div>
         </div>
       </div>
 
-      {/* ── Bottom bar ── */}
-      <div
-        style={{
-          borderTop: '1px solid #EFE7DC',
-          maxWidth: '1400px',
-          margin: '0 auto',
-          padding: '20px 80px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-        }}
-      >
-        <p
+      {/* Bottom bar */}
+      <div style={{ borderTop: '1px solid #EFE7DC' }}>
+        <div
+          className="flex flex-col sm:flex-row items-center justify-between gap-3"
           style={{
+            maxWidth: '1200px',
+            margin: '0 auto',
+            padding: '18px 24px',
+          }}
+        >
+          <p style={{
             fontFamily: 'var(--font-sans)',
             fontSize: '11.5px',
             fontWeight: 300,
             color: '#1F1F1F',
             opacity: 0.4,
             letterSpacing: '0.04em',
-          }}
-        >
-          &copy; {new Date().getFullYear()} Stayzzee. All rights reserved.
-        </p>
-
-        <div style={{ display: 'flex', gap: '24px' }}>
-          {['Privacy', 'Terms', 'Cookies'].map((item) => (
-            <Link
-              key={item}
-              href="#"
-              style={{
-                fontFamily: 'var(--font-sans)',
-                fontSize: '11.5px',
-                fontWeight: 300,
-                color: '#1F1F1F',
-                opacity: 0.4,
-                textDecoration: 'none',
-                letterSpacing: '0.04em',
-                transition: 'opacity 0.2s ease',
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.8')}
-              onMouseLeave={(e) => (e.currentTarget.style.opacity = '0.4')}
-            >
-              {item}
-            </Link>
-          ))}
+          }}>
+            &copy; {new Date().getFullYear()} Stayzzee. All rights reserved.
+          </p>
+          <div style={{ display: 'flex', gap: '20px' }}>
+            {['Privacy', 'Terms', 'Cookies'].map((item) => (
+              <Link
+                key={item}
+                href="#"
+                style={{
+                  fontFamily: 'var(--font-sans)',
+                  fontSize: '11.5px',
+                  fontWeight: 300,
+                  color: '#1F1F1F',
+                  opacity: 0.4,
+                  textDecoration: 'none',
+                  letterSpacing: '0.04em',
+                  transition: 'opacity 0.2s ease',
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.8')}
+                onMouseLeave={(e) => (e.currentTarget.style.opacity = '0.4')}
+              >
+                {item}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </footer>
   )
 }
-
-/* ── Sub-components ── */
 
 function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
@@ -339,17 +311,9 @@ function SocialButton({ href, label, children }: { href: string; label: string; 
   )
 }
 
-/* ── Footer logo — same pill badge + wordmark, smaller scale ── */
 function FooterLogo() {
   return (
-    <svg
-      width="144"
-      height="38"
-      viewBox="0 0 168 44"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-label="STAYZZEE"
-    >
+    <svg width="144" height="38" viewBox="0 0 168 44" fill="none" aria-label="STAYZZEE">
       <rect x="1" y="1" width="30" height="42" rx="15" fill="none" stroke="#B8955B" strokeWidth="1" />
       <text x="16" y="17" textAnchor="middle" fontFamily="Cormorant Garamond, Georgia, serif" fontSize="13" fontWeight="400" fill="#B8955B">S</text>
       <line x1="8" y1="22" x2="24" y2="22" stroke="#B8955B" strokeWidth="0.75" />
@@ -359,7 +323,6 @@ function FooterLogo() {
   )
 }
 
-/* ── Social Icons — thin line SVGs ── */
 function InstagramIcon() {
   return (
     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">

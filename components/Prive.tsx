@@ -10,90 +10,82 @@ export default function Prive() {
         backgroundColor: '#F8F6F2',
         borderTop: '1px solid #EFE7DC',
         borderBottom: '1px solid #EFE7DC',
-        padding: '100px 0 0',
-        overflow: 'hidden',
       }}
     >
       <div
-        style={{
-          maxWidth: '1400px',
-          margin: '0 auto',
-          padding: '0 80px',
-          display: 'flex',
-          gap: '80px',
-          alignItems: 'flex-end',
-        }}
+        className="flex flex-col md:flex-row md:items-stretch"
+        style={{ maxWidth: '1200px', margin: '0 auto' }}
       >
-        {/* ── Left: text content ── */}
+        {/* Left: text content */}
         <div
-          style={{
-            width: '42%',
-            flexShrink: 0,
-            paddingBottom: '100px',
-          }}
+          className="w-full md:w-5/12 flex-shrink-0 flex flex-col justify-center"
+          style={{ padding: 'clamp(48px, 6vw, 80px) clamp(24px, 5vw, 64px)' }}
         >
-          {/* Gold eyebrow rule */}
-          <span
-            style={{
-              display: 'block',
-              width: '32px',
-              height: '1px',
-              backgroundColor: '#B8955B',
-              marginBottom: '24px',
-            }}
-          />
+          <span style={{
+            display: 'block',
+            width: '32px',
+            height: '1px',
+            backgroundColor: '#B8955B',
+            marginBottom: '24px',
+          }} />
 
-          {/* Section label */}
-          <p
-            style={{
-              fontFamily: 'var(--font-sans)',
-              fontSize: '10px',
-              fontWeight: 500,
-              letterSpacing: '0.22em',
-              textTransform: 'uppercase',
-              color: '#B8955B',
-              marginBottom: '22px',
-            }}
-          >
+          <p style={{
+            fontFamily: 'var(--font-sans)',
+            fontSize: '10px',
+            fontWeight: 500,
+            letterSpacing: '0.22em',
+            textTransform: 'uppercase',
+            color: '#B8955B',
+            marginBottom: '20px',
+          }}>
             Stayzzee Privé
           </p>
 
-          {/* Heading */}
-          <h2
-            style={{
-              fontFamily: 'var(--font-cormorant)',
-              fontSize: 'clamp(38px, 3.4vw, 52px)',
-              fontWeight: 300,
-              lineHeight: 1.1,
-              letterSpacing: '-0.01em',
-              color: '#1F1F1F',
-              marginBottom: '28px',
-              maxWidth: '420px',
-            }}
-          >
+          <h2 style={{
+            fontFamily: 'var(--font-cormorant)',
+            fontSize: 'clamp(34px, 3.4vw, 52px)',
+            fontWeight: 300,
+            lineHeight: 1.1,
+            letterSpacing: '-0.01em',
+            color: '#1F1F1F',
+            marginBottom: '24px',
+          }}>
             Exclusive benefits
             <br />
             are coming soon.
           </h2>
 
-          {/* Body copy */}
-          <p
-            style={{
-              fontFamily: 'var(--font-sans)',
-              fontSize: '14.5px',
-              fontWeight: 300,
-              lineHeight: 1.75,
-              color: '#1F1F1F',
-              opacity: 0.62,
-              maxWidth: '380px',
-              marginBottom: '44px',
-            }}
-          >
+          <p style={{
+            fontFamily: 'var(--font-sans)',
+            fontSize: '14.5px',
+            fontWeight: 300,
+            lineHeight: 1.75,
+            color: '#1F1F1F',
+            opacity: 0.62,
+            maxWidth: '360px',
+            marginBottom: '40px',
+          }}>
             We&rsquo;re creating a members-only experience with curated
             perks, upgrades, and elevated travel benefits.
           </p>
 
-          {/* Join the Waitlist button */}
+          {/* Coming soon badge */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '36px' }}>
+            <span style={{
+              fontFamily: 'var(--font-sans)',
+              fontSize: '9px',
+              fontWeight: 600,
+              letterSpacing: '0.22em',
+              textTransform: 'uppercase',
+              color: '#B8955B',
+              border: '1px solid #EFE7DC',
+              padding: '6px 14px',
+              backgroundColor: '#FFFFFF',
+            }}>
+              Coming Soon
+            </span>
+          </div>
+
           <Link
             href="#waitlist"
             style={{
@@ -108,8 +100,9 @@ export default function Prive() {
               color: '#B8955B',
               textDecoration: 'none',
               border: '1px solid #B8955B',
-              padding: '15px 32px',
+              padding: '14px 28px',
               transition: 'all 0.25s ease',
+              alignSelf: 'flex-start',
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.backgroundColor = '#B8955B'
@@ -125,18 +118,11 @@ export default function Prive() {
           </Link>
         </div>
 
-        {/* ── Right: image with floating card ── */}
+        {/* Right: image */}
         <div
-          style={{
-            flex: 1,
-            position: 'relative',
-            borderRadius: '10px 10px 0 0',
-            overflow: 'hidden',
-            height: '580px',
-            alignSelf: 'flex-end',
-          }}
+          className="relative overflow-hidden w-full md:flex-1"
+          style={{ minHeight: '320px' }}
         >
-          {/* Resort image */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1400&q=80"
@@ -149,72 +135,56 @@ export default function Prive() {
               display: 'block',
             }}
           />
+          <div style={{
+            position: 'absolute',
+            inset: 0,
+            background: 'linear-gradient(135deg, rgba(31,31,31,0.15) 0%, transparent 60%)',
+            pointerEvents: 'none',
+          }} />
 
-          {/* Subtle dark-to-transparent gradient over the photo */}
+          {/* Floating card — desktop only */}
           <div
+            className="hidden md:block"
             style={{
               position: 'absolute',
-              inset: 0,
-              background: 'linear-gradient(135deg, rgba(31,31,31,0.18) 0%, transparent 60%)',
-              pointerEvents: 'none',
-            }}
-          />
-
-          {/* ── Floating "Coming Soon" card ── */}
-          <div
-            style={{
-              position: 'absolute',
-              bottom: '32px',
-              right: '32px',
+              bottom: '28px',
+              right: '28px',
               backgroundColor: '#FFFFFF',
               borderRadius: '10px',
-              padding: '24px 28px',
-              boxShadow: '0 12px 48px rgba(31,31,31,0.16), 0 2px 8px rgba(31,31,31,0.06)',
-              width: '220px',
+              padding: '22px 26px',
+              boxShadow: '0 12px 48px rgba(31,31,31,0.16)',
+              width: '200px',
             }}
           >
-            {/* S/Z monogram */}
-            <div style={{ marginBottom: '14px' }}>
+            <div style={{ marginBottom: '12px' }}>
               <PriveMonogram />
             </div>
-
-            {/* Coming Soon badge */}
-            <p
-              style={{
-                fontFamily: 'var(--font-sans)',
-                fontSize: '9px',
-                fontWeight: 600,
-                letterSpacing: '0.22em',
-                textTransform: 'uppercase',
-                color: '#B8955B',
-                marginBottom: '8px',
-              }}
-            >
+            <p style={{
+              fontFamily: 'var(--font-sans)',
+              fontSize: '9px',
+              fontWeight: 600,
+              letterSpacing: '0.22em',
+              textTransform: 'uppercase',
+              color: '#B8955B',
+              marginBottom: '8px',
+            }}>
               Coming Soon
             </p>
-
-            {/* Thin rule */}
-            <span
-              style={{
-                display: 'block',
-                width: '28px',
-                height: '1px',
-                backgroundColor: '#EFE7DC',
-                marginBottom: '10px',
-              }}
-            />
-
-            {/* Card tagline */}
-            <p
-              style={{
-                fontFamily: 'var(--font-sans)',
-                fontSize: '12px',
-                fontWeight: 300,
-                lineHeight: 1.6,
-                color: '#1F1F1F',
-                opacity: 0.65,
-              }}
-            >
+            <span style={{
+              display: 'block',
+              width: '28px',
+              height: '1px',
+              backgroundColor: '#EFE7DC',
+              marginBottom: '10px',
+            }} />
+            <p style={{
+              fontFamily: 'var(--font-sans)',
+              fontSize: '12px',
+              fontWeight: 300,
+              lineHeight: 1.6,
+              color: '#1F1F1F',
+              opacity: 0.65,
+            }}>
               Be the first to enjoy exclusive member benefits.
             </p>
           </div>
@@ -224,17 +194,9 @@ export default function Prive() {
   )
 }
 
-/* ── Inline S/Z pill monogram (matches header logo badge) ── */
 function PriveMonogram() {
   return (
-    <svg
-      width="36"
-      height="44"
-      viewBox="0 0 36 44"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
+    <svg width="36" height="44" viewBox="0 0 36 44" fill="none" aria-hidden="true">
       <rect x="1" y="1" width="34" height="42" rx="17" stroke="#B8955B" strokeWidth="1" fill="none" />
       <text x="18" y="18" textAnchor="middle" fontFamily="Cormorant Garamond, Georgia, serif" fontSize="14" fontWeight="400" fill="#B8955B">S</text>
       <line x1="9" y1="23" x2="27" y2="23" stroke="#B8955B" strokeWidth="0.75" />

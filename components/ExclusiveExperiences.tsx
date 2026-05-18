@@ -6,7 +6,7 @@ const experiences = [
   {
     id: 'yacht-charters',
     title: 'Yacht Charters',
-    description: 'Private yacht experiences across the world\'s finest waters.',
+    description: "Private yacht experiences across the world's finest waters.",
     image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=700&q=80',
     alt: 'Luxury private yacht at sea',
   },
@@ -39,139 +39,87 @@ export default function ExclusiveExperiences() {
       id="exclusive-experiences"
       style={{
         backgroundColor: '#FFFFFF',
-        borderTop: '1px solid #EFE7DC',
         borderBottom: '1px solid #EFE7DC',
-        padding: '96px 0 100px',
+        padding: '80px 0 88px',
       }}
     >
-      <div
-        style={{
-          maxWidth: '1400px',
-          margin: '0 auto',
-          padding: '0 80px',
-          display: 'flex',
-          gap: '72px',
-          alignItems: 'flex-start',
-        }}
-      >
-        {/* ── Left: text block ── */}
-        <div style={{ width: '232px', flexShrink: 0, paddingTop: '8px' }}>
-          <p
-            style={{
-              fontFamily: 'var(--font-sans)',
-              fontSize: '10px',
-              fontWeight: 500,
-              letterSpacing: '0.22em',
-              textTransform: 'uppercase',
-              color: '#B8955B',
-              marginBottom: '20px',
-            }}
-          >
+      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
+
+        {/* Section header */}
+        <div style={{ marginBottom: '40px' }}>
+          <p style={{
+            fontFamily: 'var(--font-sans)',
+            fontSize: '10px',
+            fontWeight: 500,
+            letterSpacing: '0.22em',
+            textTransform: 'uppercase',
+            color: '#B8955B',
+            marginBottom: '16px',
+          }}>
             Exclusive Experiences
           </p>
-
-          <h2
-            style={{
-              fontFamily: 'var(--font-cormorant)',
-              fontSize: 'clamp(34px, 3vw, 44px)',
-              fontWeight: 300,
-              lineHeight: 1.1,
-              letterSpacing: '-0.01em',
-              color: '#1F1F1F',
-              marginBottom: '20px',
-            }}
-          >
-            Beyond
-            <br />
-            the stay.
-          </h2>
-
-          <p
-            style={{
-              fontFamily: 'var(--font-sans)',
-              fontSize: '13.5px',
-              fontWeight: 300,
-              lineHeight: 1.7,
-              color: '#1F1F1F',
-              opacity: 0.58,
-              marginBottom: '32px',
-            }}
-          >
-            Discover elevated experiences designed to make every trip unforgettable.
-          </p>
-
-          {/* Explore all link */}
-          <Link
-            href="#"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '10px',
-              fontFamily: 'var(--font-sans)',
-              fontSize: '11px',
-              fontWeight: 500,
-              letterSpacing: '0.16em',
-              textTransform: 'uppercase',
-              color: '#B8955B',
-              textDecoration: 'none',
-              transition: 'gap 0.2s ease',
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.gap = '16px')}
-            onMouseLeave={(e) => (e.currentTarget.style.gap = '10px')}
-          >
-            Explore Experiences
-            <ArrowRight />
-          </Link>
-        </div>
-
-        {/* ── Right: experience cards + scroll arrow ── */}
-        <div style={{ flex: 1, minWidth: 0, display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <div style={{ flex: 1, display: 'flex', gap: '14px', minWidth: 0 }}>
-            {experiences.map((exp) => (
-              <ExperienceCard key={exp.id} {...exp} />
-            ))}
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+            <div>
+              <h2 style={{
+                fontFamily: 'var(--font-cormorant)',
+                fontSize: 'clamp(32px, 3.2vw, 44px)',
+                fontWeight: 300,
+                lineHeight: 1.1,
+                letterSpacing: '-0.01em',
+                color: '#1F1F1F',
+                marginBottom: '12px',
+              }}>
+                Beyond the stay.
+              </h2>
+              <p style={{
+                fontFamily: 'var(--font-sans)',
+                fontSize: '14px',
+                fontWeight: 300,
+                lineHeight: 1.7,
+                color: '#1F1F1F',
+                opacity: 0.58,
+                maxWidth: '420px',
+              }}>
+                Discover elevated experiences designed to make every trip unforgettable.
+              </p>
+            </div>
+            <Link
+              href="#"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '10px',
+                fontFamily: 'var(--font-sans)',
+                fontSize: '11px',
+                fontWeight: 500,
+                letterSpacing: '0.16em',
+                textTransform: 'uppercase',
+                color: '#B8955B',
+                textDecoration: 'none',
+                flexShrink: 0,
+                transition: 'gap 0.2s ease',
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.gap = '16px')}
+              onMouseLeave={(e) => (e.currentTarget.style.gap = '10px')}
+            >
+              Explore Experiences
+              <ArrowRight />
+            </Link>
           </div>
-
-          {/* Scroll arrow */}
-          <button
-            aria-label="Next experiences"
-            style={{
-              flexShrink: 0,
-              width: '40px',
-              height: '40px',
-              borderRadius: '50%',
-              border: '1px solid #EFE7DC',
-              backgroundColor: '#FFFFFF',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: '#1F1F1F',
-              transition: 'all 0.2s ease',
-              marginLeft: '8px',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = '#B8955B'
-              e.currentTarget.style.backgroundColor = '#B8955B'
-              e.currentTarget.style.color = '#FFFFFF'
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = '#EFE7DC'
-              e.currentTarget.style.backgroundColor = '#FFFFFF'
-              e.currentTarget.style.color = '#1F1F1F'
-            }}
-          >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="9 18 15 12 9 6" />
-            </svg>
-          </button>
         </div>
+
+        {/* Cards grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {experiences.map((exp) => (
+            <ExperienceCard key={exp.id} {...exp} />
+          ))}
+        </div>
+
       </div>
     </section>
   )
 }
 
-/* ── Experience Card ── */
 type CardProps = {
   title: string
   description: string
@@ -183,8 +131,6 @@ function ExperienceCard({ title, description, image, alt }: CardProps) {
   return (
     <div
       style={{
-        flex: 1,
-        minWidth: 0,
         borderRadius: '8px',
         overflow: 'hidden',
         backgroundColor: '#FAFAF8',
@@ -202,8 +148,7 @@ function ExperienceCard({ title, description, image, alt }: CardProps) {
         if (img) img.style.transform = 'scale(1.0)'
       }}
     >
-      {/* Image */}
-      <div style={{ height: '210px', overflow: 'hidden', flexShrink: 0 }}>
+      <div style={{ height: '200px', overflow: 'hidden', flexShrink: 0 }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={image}
@@ -218,54 +163,30 @@ function ExperienceCard({ title, description, image, alt }: CardProps) {
         />
       </div>
 
-      {/* Champagne gold accent line */}
-      <div
-        style={{
-          height: '1.5px',
-          backgroundColor: '#B8955B',
-          opacity: 0.55,
-          flexShrink: 0,
-        }}
-      />
+      <div style={{ height: '1.5px', backgroundColor: '#B8955B', opacity: 0.55, flexShrink: 0 }} />
 
-      {/* Card body */}
-      <div
-        style={{
-          padding: '20px 22px 22px',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '10px',
-          flex: 1,
-        }}
-      >
-        <p
-          style={{
-            fontFamily: 'var(--font-sans)',
-            fontSize: '11px',
-            fontWeight: 500,
-            letterSpacing: '0.12em',
-            textTransform: 'uppercase',
-            color: '#1F1F1F',
-          }}
-        >
+      <div style={{ padding: '20px 20px 22px', display: 'flex', flexDirection: 'column', gap: '10px', flex: 1 }}>
+        <p style={{
+          fontFamily: 'var(--font-sans)',
+          fontSize: '11px',
+          fontWeight: 500,
+          letterSpacing: '0.12em',
+          textTransform: 'uppercase',
+          color: '#1F1F1F',
+        }}>
           {title}
         </p>
-
-        <p
-          style={{
-            fontFamily: 'var(--font-sans)',
-            fontSize: '12.5px',
-            fontWeight: 300,
-            lineHeight: 1.6,
-            color: '#1F1F1F',
-            opacity: 0.58,
-            flex: 1,
-          }}
-        >
+        <p style={{
+          fontFamily: 'var(--font-sans)',
+          fontSize: '13px',
+          fontWeight: 300,
+          lineHeight: 1.6,
+          color: '#1F1F1F',
+          opacity: 0.58,
+          flex: 1,
+        }}>
           {description}
         </p>
-
-        {/* Explore link */}
         <ExploreLink />
       </div>
     </div>

@@ -40,135 +40,74 @@ export default function CuratedDestinations() {
       style={{
         backgroundColor: '#FFFFFF',
         borderBottom: '1px solid #EFE7DC',
-        padding: '96px 0 100px',
+        padding: '80px 0 88px',
       }}
     >
-      <div
-        style={{
-          maxWidth: '1400px',
-          margin: '0 auto',
-          padding: '0 80px',
-          display: 'flex',
-          gap: '72px',
-          alignItems: 'flex-start',
-        }}
-      >
-        {/* ── Left: text block ── */}
-        <div style={{ width: '232px', flexShrink: 0, paddingTop: '8px' }}>
-          {/* Section label */}
-          <p
-            style={{
-              fontFamily: 'var(--font-sans)',
-              fontSize: '10px',
-              fontWeight: 500,
-              letterSpacing: '0.22em',
-              textTransform: 'uppercase',
-              color: '#B8955B',
-              marginBottom: '20px',
-            }}
-          >
+      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
+
+        {/* Section header — always stacked */}
+        <div style={{ marginBottom: '40px' }}>
+          <p style={{
+            fontFamily: 'var(--font-sans)',
+            fontSize: '10px',
+            fontWeight: 500,
+            letterSpacing: '0.22em',
+            textTransform: 'uppercase',
+            color: '#B8955B',
+            marginBottom: '16px',
+          }}>
             Curated Destinations
           </p>
-
-          {/* Heading */}
-          <h2
-            style={{
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+            <h2 style={{
               fontFamily: 'var(--font-cormorant)',
-              fontSize: 'clamp(34px, 3vw, 44px)',
+              fontSize: 'clamp(32px, 3.2vw, 44px)',
               fontWeight: 300,
               lineHeight: 1.1,
               letterSpacing: '-0.01em',
               color: '#1F1F1F',
-              marginBottom: '32px',
-            }}
-          >
-            Dream stays,
-            <br />
-            handpicked
-            <br />
-            for you.
-          </h2>
-
-          {/* View all link */}
-          <Link
-            href="#"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '10px',
-              fontFamily: 'var(--font-sans)',
-              fontSize: '11px',
-              fontWeight: 500,
-              letterSpacing: '0.16em',
-              textTransform: 'uppercase',
-              color: '#B8955B',
-              textDecoration: 'none',
-              transition: 'gap 0.2s ease',
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.gap = '16px')}
-            onMouseLeave={(e) => (e.currentTarget.style.gap = '10px')}
-          >
-            View All Destinations
-            <ArrowRight />
-          </Link>
-        </div>
-
-        {/* ── Right: destination cards + scroll arrow ── */}
-        <div style={{ flex: 1, minWidth: 0, display: 'flex', alignItems: 'center', gap: '12px' }}>
-          {/* Cards row */}
-          <div
-            style={{
-              flex: 1,
-              display: 'flex',
-              gap: '14px',
-              minWidth: 0,
-            }}
-          >
-            {destinations.map((dest) => (
-              <DestinationCard key={dest.id} {...dest} />
-            ))}
+            }}>
+              Dream stays,
+              <br />
+              handpicked for you.
+            </h2>
+            <Link
+              href="#"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '10px',
+                fontFamily: 'var(--font-sans)',
+                fontSize: '11px',
+                fontWeight: 500,
+                letterSpacing: '0.16em',
+                textTransform: 'uppercase',
+                color: '#B8955B',
+                textDecoration: 'none',
+                flexShrink: 0,
+                transition: 'gap 0.2s ease',
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.gap = '16px')}
+              onMouseLeave={(e) => (e.currentTarget.style.gap = '10px')}
+            >
+              View All Destinations
+              <ArrowRight />
+            </Link>
           </div>
-
-          {/* Scroll arrow */}
-          <button
-            aria-label="Next destinations"
-            style={{
-              flexShrink: 0,
-              width: '40px',
-              height: '40px',
-              borderRadius: '50%',
-              border: '1px solid #EFE7DC',
-              backgroundColor: '#FFFFFF',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: '#1F1F1F',
-              transition: 'border-color 0.2s ease, background-color 0.2s ease',
-              marginLeft: '8px',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = '#B8955B'
-              e.currentTarget.style.backgroundColor = '#B8955B'
-              e.currentTarget.style.color = '#FFFFFF'
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = '#EFE7DC'
-              e.currentTarget.style.backgroundColor = '#FFFFFF'
-              e.currentTarget.style.color = '#1F1F1F'
-            }}
-          >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="9 18 15 12 9 6" />
-            </svg>
-          </button>
         </div>
+
+        {/* Cards grid */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          {destinations.map((dest) => (
+            <DestinationCard key={dest.id} {...dest} />
+          ))}
+        </div>
+
       </div>
     </section>
   )
 }
 
-/* ── Destination Card ── */
 type CardProps = {
   name: string
   price: number
@@ -180,14 +119,12 @@ function DestinationCard({ name, price, image, alt }: CardProps) {
   return (
     <div
       style={{
-        flex: 1,
-        minWidth: 0,
-        height: '370px',
         borderRadius: '6px',
         overflow: 'hidden',
         position: 'relative',
         cursor: 'pointer',
-        boxShadow: '0 4px 24px rgba(31, 31, 31, 0.08)',
+        boxShadow: '0 4px 24px rgba(31,31,31,0.08)',
+        aspectRatio: '3/4',
       }}
       onMouseEnter={(e) => {
         const img = e.currentTarget.querySelector('img') as HTMLImageElement | null
@@ -198,7 +135,6 @@ function DestinationCard({ name, price, image, alt }: CardProps) {
         if (img) img.style.transform = 'scale(1.0)'
       }}
     >
-      {/* Resort image */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={image}
@@ -211,51 +147,32 @@ function DestinationCard({ name, price, image, alt }: CardProps) {
           transition: 'transform 0.55s ease',
         }}
       />
-
-      {/* Gradient overlay */}
-      <div
-        style={{
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          right: 0,
-          height: '55%',
-          background: 'linear-gradient(to top, rgba(15,12,8,0.72) 0%, rgba(15,12,8,0.20) 60%, transparent 100%)',
-          pointerEvents: 'none',
-        }}
-      />
-
-      {/* Card text */}
-      <div
-        style={{
-          position: 'absolute',
-          bottom: '22px',
-          left: '20px',
-          right: '20px',
-        }}
-      >
-        <p
-          style={{
-            fontFamily: 'var(--font-cormorant)',
-            fontSize: '18px',
-            fontWeight: 400,
-            letterSpacing: '0.02em',
-            color: '#FFFFFF',
-            marginBottom: '4px',
-            lineHeight: 1.2,
-          }}
-        >
+      <div style={{
+        position: 'absolute',
+        bottom: 0,
+        left: 0,
+        right: 0,
+        height: '55%',
+        background: 'linear-gradient(to top, rgba(15,12,8,0.72) 0%, rgba(15,12,8,0.20) 60%, transparent 100%)',
+        pointerEvents: 'none',
+      }} />
+      <div style={{ position: 'absolute', bottom: '18px', left: '16px', right: '16px' }}>
+        <p style={{
+          fontFamily: 'var(--font-cormorant)',
+          fontSize: 'clamp(15px, 1.6vw, 18px)',
+          fontWeight: 400,
+          color: '#FFFFFF',
+          marginBottom: '3px',
+          lineHeight: 1.2,
+        }}>
           {name}
         </p>
-        <p
-          style={{
-            fontFamily: 'var(--font-sans)',
-            fontSize: '11.5px',
-            fontWeight: 300,
-            letterSpacing: '0.04em',
-            color: 'rgba(255,255,255,0.78)',
-          }}
-        >
+        <p style={{
+          fontFamily: 'var(--font-sans)',
+          fontSize: '11px',
+          fontWeight: 300,
+          color: 'rgba(255,255,255,0.75)',
+        }}>
           From ${price} / night
         </p>
       </div>

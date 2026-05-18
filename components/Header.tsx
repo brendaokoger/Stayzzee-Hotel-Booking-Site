@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 
 const navLinks = [
-  { label: 'Stays', href: '#' },
+  { label: 'Stays', href: '/stays' },
   { label: 'Destinations', href: '#' },
   { label: 'Offers', href: '#' },
   { label: 'Concierge', href: '#' },
@@ -21,7 +21,7 @@ export default function Header() {
         left: 0,
         right: 0,
         zIndex: 100,
-        backgroundColor: 'rgba(255, 255, 255, 0.97)',
+        backgroundColor: 'rgba(255,255,255,0.97)',
         backdropFilter: 'blur(16px)',
         WebkitBackdropFilter: 'blur(16px)',
         borderBottom: '1px solid #EFE7DC',
@@ -30,9 +30,9 @@ export default function Header() {
     >
       <div
         style={{
-          maxWidth: '1400px',
+          maxWidth: '1200px',
           margin: '0 auto',
-          padding: '0 48px',
+          padding: '0 24px',
           height: '100%',
           display: 'flex',
           alignItems: 'center',
@@ -40,31 +40,30 @@ export default function Header() {
           position: 'relative',
         }}
       >
-        {/* ── Logo top-left ── */}
+        {/* Logo */}
         <Link href="/" style={{ textDecoration: 'none', flexShrink: 0, display: 'flex', alignItems: 'center' }}>
           <StayzeeLogo />
         </Link>
 
-        {/* ── Desktop nav — absolutely centered ── */}
+        {/* Desktop nav — centered */}
         <nav
+          className="hidden md:flex"
           style={{
             position: 'absolute',
             left: '50%',
             transform: 'translateX(-50%)',
             display: 'flex',
             alignItems: 'center',
-            gap: '44px',
+            gap: '40px',
           }}
-          className="hidden md:flex"
         >
           {navLinks.map((link) => (
             <NavLink key={link.label} href={link.href} label={link.label} />
           ))}
         </nav>
 
-        {/* ── Right side ── */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '20px', flexShrink: 0 }}>
-          {/* Heart */}
+        {/* Right side */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexShrink: 0 }}>
           <button
             aria-label="Saved"
             className="hidden md:flex"
@@ -73,7 +72,6 @@ export default function Header() {
             <HeartIcon />
           </button>
 
-          {/* User */}
           <button
             aria-label="Account"
             className="hidden md:flex"
@@ -82,7 +80,6 @@ export default function Header() {
             <UserIcon />
           </button>
 
-          {/* Sign In — gold outlined */}
           <Link
             href="#"
             className="hidden md:inline-flex"
@@ -94,7 +91,7 @@ export default function Header() {
               textTransform: 'uppercase',
               color: '#B8955B',
               border: '1px solid #B8955B',
-              padding: '9px 20px',
+              padding: '8px 18px',
               textDecoration: 'none',
               transition: 'all 0.2s ease',
               alignItems: 'center',
@@ -111,15 +108,16 @@ export default function Header() {
             Sign In
           </Link>
 
-          {/* Hamburger */}
+          {/* Hamburger — mobile only */}
           <button
-            aria-label="Menu"
+            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+            className="md:hidden"
             onClick={() => setMobileOpen(!mobileOpen)}
             style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '4px', display: 'flex', flexDirection: 'column', gap: '5px' }}
           >
-            <span style={{ display: 'block', width: '22px', height: '1px', backgroundColor: '#1F1F1F', opacity: 0.7 }} />
-            <span style={{ display: 'block', width: '15px', height: '1px', backgroundColor: '#1F1F1F', opacity: 0.7 }} />
-            <span style={{ display: 'block', width: '22px', height: '1px', backgroundColor: '#1F1F1F', opacity: 0.7 }} />
+            <span style={{ display: 'block', width: '22px', height: '1.5px', backgroundColor: '#1F1F1F', opacity: 0.7, transition: 'transform 0.2s ease' }} />
+            <span style={{ display: 'block', width: '15px', height: '1.5px', backgroundColor: '#1F1F1F', opacity: 0.7 }} />
+            <span style={{ display: 'block', width: '22px', height: '1.5px', backgroundColor: '#1F1F1F', opacity: 0.7 }} />
           </button>
         </div>
       </div>
@@ -127,6 +125,7 @@ export default function Header() {
       {/* Mobile drawer */}
       {mobileOpen && (
         <div
+          className="md:hidden"
           style={{
             position: 'absolute',
             top: '72px',
@@ -134,15 +133,15 @@ export default function Header() {
             right: 0,
             backgroundColor: '#FFFFFF',
             borderBottom: '1px solid #EFE7DC',
-            padding: '24px 48px 32px',
+            padding: '20px 24px 28px',
             zIndex: 99,
           }}
-          className="md:hidden"
         >
           {navLinks.map((link) => (
             <Link
               key={link.label}
               href={link.href}
+              onClick={() => setMobileOpen(false)}
               style={{
                 display: 'block',
                 fontFamily: 'var(--font-sans)',
@@ -160,7 +159,7 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '20px', marginTop: '24px' }}>
+          <div style={{ marginTop: '20px' }}>
             <Link
               href="#"
               style={{
@@ -173,6 +172,7 @@ export default function Header() {
                 border: '1px solid #B8955B',
                 padding: '11px 24px',
                 textDecoration: 'none',
+                display: 'inline-block',
               }}
             >
               Sign In
@@ -183,8 +183,6 @@ export default function Header() {
     </header>
   )
 }
-
-/* ── Sub-components ── */
 
 function NavLink({ href, label }: { href: string; label: string }) {
   return (
@@ -210,26 +208,20 @@ function NavLink({ href, label }: { href: string; label: string }) {
   )
 }
 
-/* ── STAYZZEE logo SVG — matches the uploaded horizontal lockup ── */
 function StayzeeLogo() {
   return (
     <svg
-      width="168"
-      height="44"
+      width="148"
+      height="40"
       viewBox="0 0 168 44"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       aria-label="STAYZZEE"
     >
-      {/* Oval badge */}
       <rect x="1" y="1" width="30" height="42" rx="15" fill="none" stroke="#B8955B" strokeWidth="1" />
-      {/* S */}
       <text x="16" y="17" textAnchor="middle" fontFamily="Cormorant Garamond, Georgia, serif" fontSize="13" fontWeight="400" fill="#B8955B">S</text>
-      {/* Divider line */}
       <line x1="8" y1="22" x2="24" y2="22" stroke="#B8955B" strokeWidth="0.75" />
-      {/* z */}
       <text x="16" y="36" textAnchor="middle" fontFamily="Cormorant Garamond, Georgia, serif" fontSize="12" fontWeight="300" fontStyle="italic" fill="#B8955B">z</text>
-      {/* STAYZZEE wordmark */}
       <text x="44" y="28" fontFamily="Cormorant Garamond, Georgia, serif" fontSize="17" fontWeight="400" letterSpacing="5" fill="#B8955B">STAYZZEE</text>
     </svg>
   )
