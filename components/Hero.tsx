@@ -8,7 +8,7 @@ export default function Hero() {
       id="hero"
       style={{
         position: 'relative',
-        minHeight: 'calc(88vh - 72px)',
+        minHeight: 'clamp(440px, 56vh, 580px)',
         display: 'flex',
         alignItems: 'center',
         overflow: 'hidden',
@@ -63,7 +63,7 @@ export default function Hero() {
           maxWidth: '1200px',
           margin: '0 auto',
         }}
-        className="px-5 md:px-12 py-16 md:py-24"
+        className="px-5 md:px-12 py-12 md:py-20"
       >
         <div style={{ maxWidth: '760px' }}>
 

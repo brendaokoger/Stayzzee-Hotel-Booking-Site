@@ -35,20 +35,12 @@ const destinations = [
 
 export default function CuratedDestinations() {
   return (
-    <section
-      style={{
-        backgroundColor: '#FFFFFF',
-        borderBottom: '1px solid #EFE7DC',
-      }}
-    >
+    <section style={{ backgroundColor: '#FFFFFF', borderBottom: '1px solid #EFE7DC' }}>
       <div className="sz-container sz-section">
+        <div className="flex flex-col md:flex-row md:items-start" style={{ gap: '48px' }}>
 
-        {/* Section header */}
-        <div
-          style={{ marginBottom: '48px' }}
-          className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6"
-        >
-          <div>
+          {/* ── Left: text column ── */}
+          <div className="flex-shrink-0 w-full md:w-72" style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
             <span className="sz-label">Curated Destinations</span>
             <h2 style={{
               fontFamily: 'var(--font-cormorant)',
@@ -62,39 +54,37 @@ export default function CuratedDestinations() {
               <br />
               handpicked for you.
             </h2>
+            <Link
+              href="#"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '10px',
+                fontFamily: 'var(--font-sans)',
+                fontSize: '11px',
+                fontWeight: 500,
+                letterSpacing: '0.16em',
+                textTransform: 'uppercase',
+                color: '#B8955B',
+                textDecoration: 'none',
+                transition: 'gap 0.2s ease',
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.gap = '16px')}
+              onMouseLeave={(e) => (e.currentTarget.style.gap = '10px')}
+            >
+              View All Destinations
+              <ArrowRight />
+            </Link>
           </div>
-          <Link
-            href="#"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '10px',
-              fontFamily: 'var(--font-sans)',
-              fontSize: '11px',
-              fontWeight: 500,
-              letterSpacing: '0.16em',
-              textTransform: 'uppercase',
-              color: '#B8955B',
-              textDecoration: 'none',
-              flexShrink: 0,
-              transition: 'gap 0.2s ease',
-              paddingBottom: '4px',
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.gap = '16px')}
-            onMouseLeave={(e) => (e.currentTarget.style.gap = '10px')}
-          >
-            View All Destinations
-            <ArrowRight />
-          </Link>
-        </div>
 
-        {/* Destination cards: 2-col mobile, 4-col desktop */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
-          {destinations.map((d) => (
-            <DestCard key={d.id} {...d} />
-          ))}
-        </div>
+          {/* ── Right: destination cards grid ── */}
+          <div className="flex-1 grid grid-cols-2 md:grid-cols-4" style={{ gap: '12px' }}>
+            {destinations.map((d) => (
+              <DestCard key={d.id} {...d} />
+            ))}
+          </div>
 
+        </div>
       </div>
     </section>
   )
@@ -134,25 +124,21 @@ function DestCard({ name, price, image, alt }: { name: string; price: number; im
           transition: 'transform 0.6s ease',
         }}
       />
-      {/* Gradient */}
       <div style={{
         position: 'absolute',
-        bottom: 0,
-        left: 0,
-        right: 0,
+        bottom: 0, left: 0, right: 0,
         height: '60%',
         background: 'linear-gradient(to top, rgba(12,10,6,0.75) 0%, rgba(12,10,6,0.15) 55%, transparent 100%)',
         pointerEvents: 'none',
       }} />
-      {/* Text */}
-      <div style={{ position: 'absolute', bottom: '16px', left: '16px', right: '16px' }}>
+      <div style={{ position: 'absolute', bottom: '14px', left: '14px', right: '14px' }}>
         <p style={{
           fontFamily: 'var(--font-cormorant)',
-          fontSize: 'clamp(14px, 1.5vw, 18px)',
+          fontSize: 'clamp(13px, 1.4vw, 17px)',
           fontWeight: 400,
           color: '#FFFFFF',
           lineHeight: 1.2,
-          marginBottom: '4px',
+          marginBottom: '3px',
         }}>
           {name}
         </p>
