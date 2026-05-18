@@ -7,39 +7,100 @@ export default function Hero() {
     <section
       id="hero"
       style={{
+        position: 'relative',
+        minHeight: 'calc(88vh - 72px)',
         display: 'flex',
-        flexDirection: 'row',
-        minHeight: 'calc(90vh - 72px)',
+        alignItems: 'center',
+        overflow: 'hidden',
         backgroundColor: '#F8F6F2',
       }}
-      className="flex-col md:flex-row"
     >
-      {/* ── Left: text panel ── */}
+      {/* ── Full-width background image ── */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1800&q=90"
+        alt="Luxury resort terrace with sea view"
+        style={{
+          position: 'absolute',
+          inset: 0,
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          objectPosition: 'center 30%',
+          display: 'block',
+        }}
+      />
+
+      {/* ── Mobile overlay: uniform ivory wash ── */}
+      <div
+        className="block md:hidden"
+        style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundColor: 'rgba(248,246,242,0.86)',
+          pointerEvents: 'none',
+        }}
+      />
+
+      {/* ── Desktop overlay: gradient left → transparent ── */}
+      <div
+        className="hidden md:block"
+        style={{
+          position: 'absolute',
+          inset: 0,
+          background:
+            'linear-gradient(to right, rgba(248,246,242,1) 0%, rgba(248,246,242,0.98) 20%, rgba(248,246,242,0.88) 36%, rgba(248,246,242,0.42) 56%, rgba(248,246,242,0.06) 76%, transparent 100%)',
+          pointerEvents: 'none',
+        }}
+      />
+
+      {/* ── Content ── */}
       <div
         style={{
-          backgroundColor: '#F8F6F2',
-          display: 'flex',
-          alignItems: 'center',
-          flexShrink: 0,
+          position: 'relative',
+          zIndex: 10,
+          width: '100%',
+          maxWidth: '1200px',
+          margin: '0 auto',
         }}
-        className="w-full md:w-[44%] px-8 py-16 md:px-16 md:py-20"
+        className="px-5 md:px-12 py-16 md:py-24"
       >
-        <div style={{ maxWidth: '440px', width: '100%' }}>
+        <div style={{ maxWidth: '760px' }}>
 
           {/* Gold eyebrow rule */}
-          <span className="sz-rule" style={{ marginBottom: '36px' }} />
+          <span
+            style={{
+              display: 'block',
+              width: '36px',
+              height: '1px',
+              backgroundColor: '#B8955B',
+              marginBottom: '32px',
+            }}
+          />
 
           {/* Section label */}
-          <p className="sz-label">Luxury Travel, Curated</p>
+          <p
+            style={{
+              fontFamily: 'var(--font-sans)',
+              fontSize: '10px',
+              fontWeight: 500,
+              letterSpacing: '0.22em',
+              textTransform: 'uppercase',
+              color: '#B8955B',
+              marginBottom: '20px',
+            }}
+          >
+            Luxury Travel, Curated
+          </p>
 
           {/* Headline */}
           <h1
             style={{
               fontFamily: 'var(--font-cormorant)',
-              fontSize: 'clamp(42px, 4.8vw, 70px)',
+              fontSize: 'clamp(48px, 6vw, 82px)',
               fontWeight: 300,
-              lineHeight: 1.06,
-              letterSpacing: '-0.01em',
+              lineHeight: 1.05,
+              letterSpacing: '-0.02em',
               color: '#1F1F1F',
               marginBottom: '28px',
             }}
@@ -53,23 +114,21 @@ export default function Hero() {
                 fontWeight: 300,
               }}
             >
-              wherever life
-              <br />
-              takes you.
+              wherever life takes you.
             </em>
           </h1>
 
-          {/* Sub copy */}
+          {/* Subheadline */}
           <p
             style={{
               fontFamily: 'var(--font-sans)',
               fontSize: '15px',
               fontWeight: 300,
-              lineHeight: 1.8,
+              lineHeight: 1.78,
               color: '#1F1F1F',
-              opacity: 0.62,
+              opacity: 0.65,
+              maxWidth: '360px',
               marginBottom: '44px',
-              maxWidth: '320px',
             }}
           >
             Handpicked luxury stays and unforgettable
@@ -106,45 +165,8 @@ export default function Hero() {
             Explore Stays
             <ArrowRight />
           </Link>
-        </div>
-      </div>
 
-      {/* ── Right: luxury image ── */}
-      <div
-        style={{
-          position: 'relative',
-          overflow: 'hidden',
-          flex: 1,
-        }}
-        className="w-full min-h-[280px] md:min-h-0"
-      >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1600&q=85"
-          alt="Luxury Mediterranean villa with infinity pool overlooking the sea"
-          style={{
-            position: 'absolute',
-            inset: 0,
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            objectPosition: 'center 35%',
-            display: 'block',
-          }}
-        />
-        {/* Subtle fade from ivory panel — desktop only */}
-        <div
-          className="hidden md:block"
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '120px',
-            height: '100%',
-            background: 'linear-gradient(to right, #F8F6F2 0%, transparent 100%)',
-            pointerEvents: 'none',
-          }}
-        />
+        </div>
       </div>
     </section>
   )

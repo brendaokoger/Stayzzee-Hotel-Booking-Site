@@ -3,13 +3,12 @@
 export default function SearchBar() {
   return (
     <section
+      className="relative z-20 md:-mt-14"
       style={{
-        backgroundColor: '#FFFFFF',
-        borderTop: '1px solid #EFE7DC',
-        borderBottom: '1px solid #EFE7DC',
+        backgroundColor: 'transparent',
       }}
     >
-      <div className="sz-container" style={{ paddingTop: '36px', paddingBottom: '44px' }}>
+      <div className="sz-container" style={{ paddingTop: '0', paddingBottom: '44px' }}>
 
         {/* ── Desktop: single horizontal bar ── */}
         <div
@@ -19,7 +18,7 @@ export default function SearchBar() {
             backgroundColor: '#FFFFFF',
             border: '1px solid #EFE7DC',
             borderRadius: '6px',
-            boxShadow: '0 4px 40px rgba(31,31,31,0.08), 0 1px 8px rgba(31,31,31,0.04)',
+            boxShadow: '0 8px 56px rgba(31,31,31,0.13), 0 2px 16px rgba(31,31,31,0.07)',
             overflow: 'hidden',
           }}
         >
@@ -58,6 +57,7 @@ export default function SearchBar() {
             borderRadius: '8px',
             boxShadow: '0 4px 24px rgba(31,31,31,0.07)',
             overflow: 'hidden',
+            marginTop: '24px',
           }}
         >
           <MobileField icon={<PinIcon />} label="Where to?" placeholder="Search destinations" />
