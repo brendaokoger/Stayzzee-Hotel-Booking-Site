@@ -97,7 +97,7 @@ export default function Hero() {
           <h1
             style={{
               fontFamily: 'var(--font-cormorant)',
-              fontSize: 'clamp(48px, 6vw, 82px)',
+              fontSize: 'clamp(40px, 3.8vw, 54px)',
               fontWeight: 300,
               lineHeight: 1.05,
               letterSpacing: '-0.02em',

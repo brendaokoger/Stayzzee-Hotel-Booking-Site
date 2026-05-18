@@ -57,13 +57,13 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Section vertical padding */
 .sz-section {
-  padding-top: 88px;
-  padding-bottom: 88px;
+  padding-top: 72px;
+  padding-bottom: 72px;
 }
 
 .sz-section--sm {
-  padding-top: 64px;
-  padding-bottom: 64px;
+  padding-top: 48px;
+  padding-bottom: 48px;
 }
 
 /* ─── Responsive overrides ─── */
