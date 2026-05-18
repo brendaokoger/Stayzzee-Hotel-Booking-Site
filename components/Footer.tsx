@@ -313,13 +313,12 @@ function SocialButton({ href, label, children }: { href: string; label: string; 
 
 function FooterLogo() {
   return (
-    <svg width="144" height="38" viewBox="0 0 168 44" fill="none" aria-label="STAYZZEE">
-      <rect x="1" y="1" width="30" height="42" rx="15" fill="none" stroke="#B8955B" strokeWidth="1" />
-      <text x="16" y="17" textAnchor="middle" fontFamily="Cormorant Garamond, Georgia, serif" fontSize="13" fontWeight="400" fill="#B8955B">S</text>
-      <line x1="8" y1="22" x2="24" y2="22" stroke="#B8955B" strokeWidth="0.75" />
-      <text x="16" y="36" textAnchor="middle" fontFamily="Cormorant Garamond, Georgia, serif" fontSize="12" fontWeight="300" fontStyle="italic" fill="#B8955B">z</text>
-      <text x="44" y="28" fontFamily="Cormorant Garamond, Georgia, serif" fontSize="17" fontWeight="400" letterSpacing="5" fill="#B8955B">STAYZZEE</text>
-    </svg>
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src="/stayzzee%20logo%201.png"
+      alt="STAYZZEE"
+      style={{ height: '32px', width: 'auto', display: 'block' }}
+    />
   )
 }
 
