@@ -65,7 +65,7 @@ export default function Hero() {
         }}
         className="px-5 md:px-12 py-12 md:py-20"
       >
-        <div style={{ maxWidth: '760px' }}>
+        <div style={{ maxWidth: '480px' }}>
 
           {/* Gold eyebrow rule */}
           <span
@@ -97,7 +97,7 @@ export default function Hero() {
           <h1
             style={{
               fontFamily: 'var(--font-cormorant)',
-              fontSize: 'clamp(40px, 3.8vw, 54px)',
+              fontSize: 'clamp(44px, 4.2vw, 58px)',
               fontWeight: 300,
               lineHeight: 1.05,
               letterSpacing: '-0.02em',
